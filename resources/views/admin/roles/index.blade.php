@@ -1,7 +1,48 @@
 @extends('layouts.admin')
-@section('title','admin')
+@section('title','Roles & Permission')
+@section('styles')
+    <link href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel="stylesheet">
+@endsection
 @section('content')
     <div class="container">
+        <section>
+            <div class="row p-5">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mx-auto">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h1>{{$user+ $managers}}</h1>
+                            </div>
+                            <h5>Total Users</h5>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mx-auto">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h1>{{$managers}}</h1>
+                            </div>
+                            <h5>Total Managers</h5>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mx-auto">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h1>{{$user}}</h1>
+                            </div>
+                            <h5>Total Users</h5>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
         @include('includes.status')
         <section>
             <div class="row">
@@ -10,7 +51,7 @@
                         <div class="card-header p-3">
                             <h5 style="font-size: 18px" class="float-start">Permissions</h5>
                             <!-- Button trigger modal -->
-                            <button class="float-end bt-sm btn-primary" data-bs-toggle="modal"
+                            <button class="float-end btn-sm btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">Create Permission
                             </button>
                             <!-- Modal -->
@@ -82,7 +123,7 @@
 
                                                     </li>
                                                     <li>
-                                                        <form action="{{route('permission.destroy',$permission->id)}}"
+                                                        <form action="{{route('roles.destroy',$permission->id)}}"
                                                               method="POST">
                                                             @method('DELETE')
                                                             @csrf
@@ -163,3 +204,12 @@
         </section>
     </div>
 @endsection
+@section('scripts')
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready( function () {
+            $('#role').DataTable();
+        } );
+    </script>
+    @endsection

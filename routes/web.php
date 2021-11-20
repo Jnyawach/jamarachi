@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 /*Admin Routes*/
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminRoleController;
+use App\Http\Controllers\Admin\AdminUsersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +25,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group([], function (){
     Route::resource('admin',AdminController::class);
+    Route::resource('admin/homepage/roles',AdminRoleController::class);
+    Route::resource('admin/homepage/users',AdminUSersController::class);
 });

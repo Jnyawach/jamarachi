@@ -77,7 +77,22 @@ mark{
 
 
 }
-
+label{
+    color: var(--junior);
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+input[type=text]{
+    border-radius: 30px;
+    height: 45px;
+    border: 2px solid var(--gray);
+    background: var(--lightgray);
+}
+input[type=text]:focus{
+    box-shadow: none;
+    border: 1px dashed var(--secondary);
+}
 .btn{
   display: inline-block;
 
@@ -89,6 +104,18 @@ mark{
   border-radius: 30px;
   font-size: 1rem;
   line-height: 1.5;
+}
+.btn-sm{
+    display: inline-block;
+
+    color: var(--secondary);
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 .btn-link{
     color: var(--primary);
@@ -230,7 +257,7 @@ mark{
     font-size: 28px;
     font-weight: normal!important;
 }
-.modal-content{
+.search-area .modal-content{
     background: none!important;
     border: none!important;
 }
@@ -756,7 +783,7 @@ footer .nav .nav-item .nav-link:hover{
 }
 /*------------------------------Admin styles------------------*/
 .admin{
-    background: var(--gray);
+    background: var(--lightgray);
 }
 #sideBar{
 
@@ -780,14 +807,26 @@ footer .nav .nav-item .nav-link:hover{
 .admin-nav .btn-link:hover{
     color: var(--secondary) !important;
 }
-.sidebar .nav-item .nav-link{
+
+.admin-sidebar.offcanvas-title, .admin-sidebar .accordion-button{
     color: white;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 14px;
 }
-#sideBar h5{
-    color: white;
+.admin-sidebar .accordion-item, .admin-sidebar .accordion-header .accordion-button{
+   background: none !important;
 }
-.admin-sidebar li a{
-    color: white !important;
+.sidebar{
+    width: 300px !important;
+}
+.admin-sidebar button{
+  color: white !important;
+    background: none !important;
+    border: none !important;
+}
+.folders li a{
+   color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
 }
