@@ -56,55 +56,36 @@
         </div>
     </div>
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="sideBar" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">MENU</h5>
-            <button type="button" class="btn-close text-reset text-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="nav-left-sidebar sidebar-dark pt-5">
-                <div class="menu-list">
-                    <nav class="navbar navbar-expand-lg  p-3">
 
-                        <div class="navbar-collapse" >
-                            <ul class="navbar-nav flex-column">
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="#"  aria-expanded="false" >ADMIN PANEL</a>
-
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-user" aria-hidden="true"></i>Users</a>
-                                    <div id="submenu-2" class="collapse submenu" style="">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Admin</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Managers</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Writers</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Client</a>
-                                            </li>
-
-
-                                        </ul>
-                                    </div>
-                                </li>
-
-
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-
-        </div>
-    </div>
 </header>
+<!---------------------------Sidebar------------>
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="sideBar" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">MENU</h5>
+        <button type="button" class="btn-close text-reset text-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="nav admin-sidebar nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
 
+            <li>
+                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                  Dashboard </a>
+                <ul class="collapse show nav" id="submenu1" data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
+                    </li>
+                </ul>
+            </li>
+
+
+        </ul>
+
+    </div>
+</div>
+<!----------------------End of sidebar----------------->
 
 
 
