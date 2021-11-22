@@ -45,8 +45,14 @@
                             <li><a class="dropdown-item" href="#">Messages</a></li>
                             <li><hr class="dropdown-divider"> </li>
                             <li>
-                                <form class="dropdown-item">
-                                    <button type="submit" class="btn btn-link p-0 text-decoration-none">Logout</button>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
                                 </form>
                             </li>
                         </ul>
@@ -108,6 +114,25 @@
                 </h2>
                 <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                        <i class="fas fa-info-circle me-3"></i>Faqs
+                    </button>
+                </h2>
+                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('faqs.index')}}" title="Admins">Add Questions</a> </li>
+
+                        </ul>
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('faqs-category.index')}}" title="Admins">Add Categories</a> </li>
+
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminRoleController;
 use App\Http\Controllers\Admin\AdminUsersController;
+use App\Http\Controllers\Admin\AdminFaqsController;
+use App\Http\Controllers\Admin\AdminFaqsCategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,4 +29,6 @@ Route::group([], function (){
     Route::resource('admin',AdminController::class);
     Route::resource('admin/homepage/roles',AdminRoleController::class);
     Route::resource('admin/homepage/users',AdminUSersController::class);
+    Route::resource('admin/homepage/faqs',AdminFaqsController::class);
+    Route::resource('admin/homepage/faqs-category',AdminFaqsCategoryController::class);
 });
