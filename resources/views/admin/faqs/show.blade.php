@@ -7,8 +7,9 @@
         <hr>
         <div class="row">
             <div class="col-12">
+                @include('includes.status')
                 @foreach($category->faqs as $faq)
-                    <div class="accordion accordion-flush" id="accordion{{$faq->id}}">
+                    <div class="accordion accordion-flush mt-1" id="accordion{{$faq->id}}">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-heading{{$faq->id}}">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"

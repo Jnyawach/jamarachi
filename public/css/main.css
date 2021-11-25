@@ -579,6 +579,26 @@ footer .nav .nav-item .nav-link:hover{
     text-decoration: underline;
     color:  var(--junior) !important;
 }
+.mini-footer .accordion-item, .mini-footer .accordion-header .accordion-button{
+    background: none !important;
+}
+.mini-footer .accordion-header .accordion-button{
+    font-weight: 600;
+    color: var(--junior);
+}
+.mini-footer .accordion-header .accordion-button:focus{
+   box-shadow: none !important;
+
+}
+.mini-footer .accordion-item ul .nav-item .nav-link{
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+.social .nav-item .nav-link{
+    font-size:24px !important;
+    margin: 5px !important;
+    color: black !important;
+}
  /*Shop all*/
  .shop-head{
      background-color: var(--gray);

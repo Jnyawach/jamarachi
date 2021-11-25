@@ -125,15 +125,37 @@
                 <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                         <ul class="list-unstyled folders">
-                            <li><a href="{{route('faqs.index')}}" title="Admins">Add Questions</a> </li>
+                            <li><a href="{{route('faqs.index')}}" title="Admins">FAqs Category</a> </li>
 
                         </ul>
                         <ul class="list-unstyled folders">
-                            <li><a href="{{route('faqs-category.index')}}" title="Admins">Add Categories</a> </li>
+                            <li><a href="{{route('faqs.create')}}" title="Admins">Create Faqs</a> </li>
 
                         </ul>
                     </div>
                 </div>
+
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-headingFive" aria-expanded="false" aria-controls="flush-headingFive">
+                        <i class="far fa-file-alt me-2"></i>Policies
+                    </button>
+                </h2>
+                <div id="flush-headingFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('policy.index')}}" title="Admins">FAqs Category</a> </li>
+
+                        </ul>
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('policy.create')}}" title="Admins">Create Faqs</a> </li>
+
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
 

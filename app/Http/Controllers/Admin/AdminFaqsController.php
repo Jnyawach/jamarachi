@@ -43,14 +43,15 @@ class AdminFaqsController extends Controller
     public function store(Request $request)
     {
         //
+
         $validated = $request->validate([
             'faq_category_id' => 'required','max:3',
-            'question' => 'required', 'max:255',
+            'quiz' => 'required', 'max:255',
             'answer' => 'required',
         ]);
         $faq=Faq::create([
             'faq_category_id'=>$validated['faq_category_id'],
-            'question'=>$validated['question'],
+            'quiz'=>$validated['quiz'],
             'answer'=>$validated['answer']
 
         ]);
@@ -98,12 +99,12 @@ class AdminFaqsController extends Controller
         $faq=Faq::findOrFail($id);
         $validated = $request->validate([
             'faq_category_id' => 'required','max:3',
-            'question' => 'required', 'max:255',
+            'quiz' => 'required', 'max:255',
             'answer' => 'required',
         ]);
         $faq->update([
             'faq_category_id'=>$validated['faq_category_id'],
-            'question'=>$validated['question'],
+            'quiz'=>$validated['quiz'],
             'answer'=>$validated['answer']
 
         ]);
@@ -119,7 +120,7 @@ class AdminFaqsController extends Controller
     public function destroy($id)
     {
         //
-        $faq=Faqs::findOrFail($id);
+        $faq=Faq::findOrFail($id);
         $faq->delete();
         return  redirect()->back()->with('Status','Successfully Deleted');
     }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminRoleController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\AdminFaqsController;
 use App\Http\Controllers\Admin\AdminFaqsCategoryController;
+use App\Http\Controllers\Admin\AdminPolicyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,4 +32,5 @@ Route::group([], function (){
     Route::resource('admin/homepage/users',AdminUSersController::class);
     Route::resource('admin/homepage/faqs',AdminFaqsController::class);
     Route::resource('admin/homepage/faqs-category',AdminFaqsCategoryController::class);
+    Route::resource('admin/homepage/policy',AdminPolicyController::class);
 });
