@@ -175,12 +175,12 @@ input[type=text]:focus{
 .navbar{
 
 }
-.navbar .nav-item .nav-link{
+.navbar .nav-item .nav-link, .end-nav .nav-item .nav-link{
     font-weight: 600;
     font-size: 17px;
     color: var(--secondary);
 }
-.navbar .nav-item .nav-link:hover{
+.navbar .nav-item .nav-link:hover, .end-nav .nav-item .nav-link:hover{
    color: var(--primary);
 }
 .full-dropdown{
@@ -206,13 +206,19 @@ input[type=text]:focus{
     font-weight: 600;
 }
 .sechi{
-    background: none;
+
     color: var(--primary);
-    border: 1px solid var(--secondary);
+    border: 0px solid var(--secondary);
     background-color: var(--gray);
     border-radius: 30px;
    border-left: 0px;
    width: 50px;
+
+
+}
+.search{
+    border: none !important;
+
 }
 
 
@@ -224,10 +230,10 @@ input[type=text]:focus{
 .phone-user{
     background: none!important;
     border: 0px;
-    color: var(--secondary);
+    color: var(--primary);
 }
 .phone-user:hover{
-    color: var(--primary);
+    color: var(--secondary);
 }
 .gift-card{
     background-color: var(--gray);
@@ -252,7 +258,7 @@ input[type=text]:focus{
 
 }
 
-.search-close .btn-close{
+#search-modal .btn-close{
     color: white!important;
     font-size: 28px;
     font-weight: normal!important;
@@ -290,6 +296,11 @@ input[type=text]:focus{
 /*Search dropdown*/
 #search-modal{
     background-color: rgba(0, 0, 0, .5);
+
+}
+#search-modal .modal-content{
+    background: none !important;
+    border: none !important;
 }
 .search-heading{
     font-weight: 700;

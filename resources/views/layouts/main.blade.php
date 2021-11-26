@@ -41,7 +41,7 @@
     <section class="introduction pb-1 ps-3 pt-3 d-lg-none d-md-none d-sm-none">
         <p class="justify-content-end">Call Us Now: 0717109280</p>
     </section>
-    <section class="d-lg-none mt-3">
+    <section class="d-lg-none mt-3 d-md-none">
         <div class="row ">
             <div class="col-6 ">
                 <a class="navbar-brand" href="#">
@@ -64,231 +64,91 @@
                 </ul>
             </div>
 
-            <div class="col-2">
-                <button class="navbar-toggler fs-4" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
 
-            </div>
 
         </div>
     </section>
-    <section>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" class="img-fluid" alt="Jamarachi Logo" style="width: 180px;">
-                </a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="shop-all.html">Shop all</a>
-                        </li>
-                        <!--Brands menu tab-->
-                        <li class="nav-item dropdown full-dropdown">
-                            <a class="nav-link" href="#" id="navbarDropdown-brands" role="button" data-bs-toggle="dropdown"
-                               aria-expanded="false">Brands</a>
-                            <ul class="dropdown-menu full-dropdown-content" aria-labelledby="navbarDropdown-brands">
+    <section class="d-none d-md-block d-lg-block">
+        <div class="row">
+            <div class="col-8">
+                <nav class="navbar navbar-expand-lg navbar-expand-md">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                            <img src="images/logo.png" class="img-fluid" alt="Jamarachi Logo" style="width: 180px;">
+                        </a>
+                        <div class="navbar-collapse">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link " aria-current="page" href="shop-all.html">Shop all</a>
+                                </li>
+                                <!--Brands menu tab-->
+                                <li class="nav-item dropdown full-dropdown">
+                                    <a class="nav-link" href="#" id="navbarDropdown-brands" role="button" data-bs-toggle="dropdown"
+                                       aria-expanded="false">Brands</a>
+                                    <ul class="dropdown-menu full-dropdown-content" aria-labelledby="navbarDropdown-brands">
 
-                                <div class="row p-5 mt-4">
-                                    <div class="col-12 col-sm-12 col-mg-8 col-lg-5 mx-auto text-center m-1 mb-5">
-                                        <form>
-                                            <div class="input-group">
-                                                <input type="text" placeholder="SEARCH BRANDS" name="search" class="form-control search">
-                                                <button type="submit" class="sechi"><i class="fa fa-search"></i></button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="col-12 mx-auto text-center m-1">
-                                        <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                            SAMSUNG
-                                        </a>
-                                        <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                            HUAWEI
-                                        </a>
-                                        <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                            OPPO
-                                        </a>
-                                    </div>
-
-                                    <div class="col-12 mx-auto text-center m-1">
-                                        <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                            TECNO
-                                        </a>
-                                        <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                            INFINIX
-                                        </a>
-                                        <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                            REDMI
-                                        </a>
-                                        <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                            IPHONE
-                                        </a>
-
-                                    </div>
-                                    <div class="col-12 mx-auto text-center m-1">
-                                        <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                            ALL
-                                        </a>
-
-
-                                    </div>
-
-
-                                </div>
-                            </ul>
-                        </li>
-                        <!--end of Brands menu tab-->
-                        <!--Offer menu tab-->
-                        <li class="nav-item dropdown full-dropdown">
-                            <a class="nav-link" href="#"  id="navbarDropdown-offers" role="button" data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Offers
-                            </a>
-                            <ul class="dropdown-menu full-dropdown-content" aria-labelledby="navbarDropdown-offers">
-                                <div class="row pt-5 pb-5 ps-2 pe-2">
-                                    <div class="col-6 col-sm-4 col-md-4 col-lg-2">
-                                        <div class="card border-0">
-                                            <div class="card-body">
-                                                <a href="#" title="Tecno camon 11">
-                                                    <div class="gift-card p-3 text-center align-content-center">
-                                                        <img src="images/tecno-camon-18-1.png"
-                                                             alt="two people surfing" class="img-fluid round-3">
-                                                        <a href="#" class="btn btn-primary add-to-cart ">add to Cart</a>
-
+                                        <div class="row p-5 mt-4">
+                                            <div class="col-12 col-sm-12 col-mg-8 col-lg-5 mx-auto text-center m-1 mb-5">
+                                                <form>
+                                                    <div class="input-group">
+                                                        <input type="text" placeholder="SEARCH BRANDS" name="search" class="form-control search">
+                                                        <button type="submit" class="sechi"><i class="fa fa-search"></i></button>
                                                     </div>
+                                                </form>
+                                            </div>
+                                            <div class="col-12 mx-auto text-center m-1">
+                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
+                                                    SAMSUNG
                                                 </a>
-                                                <h6 class="mt-2">Tecno Camon 11 Pro</h6>
-                                                <p>Kshs. 11,999</p>
+                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
+                                                    HUAWEI
+                                                </a>
+                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
+                                                    OPPO
+                                                </a>
+                                            </div>
+
+                                            <div class="col-12 mx-auto text-center m-1">
+                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
+                                                    TECNO
+                                                </a>
+                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
+                                                    INFINIX
+                                                </a>
+                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
+                                                    REDMI
+                                                </a>
+                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
+                                                    IPHONE
+                                                </a>
 
                                             </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-6 col-sm-4 col-md-4 col-lg-2">
-                                        <div class="card border-0">
-                                            <div class="card-body">
-                                                <a href="#" title="Tecno camon 11">
-                                                    <div class="gift-card p-3 text-center align-content-center">
-                                                        <img src="images/tecno-camon-18-1.png"
-                                                             alt="two people surfing" class="img-fluid round-3">
-                                                        <a href="#" class="btn btn-primary add-to-cart ">add to Cart</a>
-
-                                                    </div>
+                                            <div class="col-12 mx-auto text-center m-1">
+                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
+                                                    ALL
                                                 </a>
-                                                <h6 class="mt-2">Tecno Camon 11 Pro</h6>
-                                                <p>Kshs. 11,999</p>
+
 
                                             </div>
+
+
                                         </div>
-
-                                    </div>
-                                    <div class="col-6 col-sm-4 col-md-4 col-lg-2">
-                                        <div class="card border-0">
-                                            <div class="card-body">
-                                                <a href="#" title="Tecno camon 11">
-                                                    <div class="gift-card p-3 text-center align-content-center">
-                                                        <img src="images/tecno-camon-18-1.png"
-                                                             alt="two people surfing" class="img-fluid round-3">
-                                                        <a href="#" class="btn btn-primary add-to-cart ">add to Cart</a>
-
-                                                    </div>
-                                                </a>
-                                                <h6 class="mt-2">Tecno Camon 11 Pro</h6>
-                                                <p>Kshs. 11,999</p>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-6 col-sm-4 col-md-4 col-lg-2">
-                                        <div class="card border-0">
-                                            <div class="card-body">
-                                                <a href="#" title="Tecno camon 11">
-                                                    <div class="gift-card p-3 text-center align-content-center">
-                                                        <img src="images/tecno-camon-18-1.png"
-                                                             alt="two people surfing" class="img-fluid round-3">
-                                                        <a href="#" class="btn btn-primary add-to-cart ">add to Cart</a>
-
-                                                    </div>
-                                                </a>
-                                                <h6 class="mt-2">Tecno Camon 11 Pro</h6>
-                                                <p>Kshs. 11,999</p>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-6 col-sm-4 col-md-4 col-lg-2">
-                                        <div class="card border-0">
-                                            <div class="card-body">
-                                                <a href="#" title="Tecno camon 11">
-                                                    <div class="gift-card p-3 text-center align-content-center">
-                                                        <img src="images/tecno-camon-18-1.png"
-                                                             alt="two people surfing" class="img-fluid round-3">
-                                                        <a href="#" class="btn btn-primary add-to-cart ">add to Cart</a>
-
-                                                    </div>
-                                                </a>
-                                                <h6 class="mt-2">Tecno Camon 11 Pro</h6>
-                                                <p>Kshs. 11,999</p>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-6 col-sm-4 col-md-4 col-lg-2">
-                                        <div class="card border-0">
-                                            <div class="card-body">
-                                                <a href="#" title="Tecno camon 11">
-                                                    <div class="gift-card p-3 text-center align-content-center">
-                                                        <img src="images/tecno-camon-18-1.png"
-                                                             alt="two people surfing" class="img-fluid round-3">
-                                                        <a href="#" class="btn btn-primary add-to-cart ">add to Cart</a>
-
-                                                    </div>
-                                                </a>
-                                                <h6 class="mt-2">Tecno Camon 11 Pro</h6>
-                                                <p>Kshs. 11,999</p>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <a href="#" class="btn btn-outline-primary mt-4 ms-5 mb-5 " title="Phones on Offer">SHOW MORE</a>
-
-                            </ul>
-                        </li>
-                        <!--End of Offer menu tab-->
-                        <li class="nav-item dropdown full-dropdown">
-                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Gifts
-                            </a>
-                            <ul class="dropdown-menu full-dropdown-content" aria-labelledby="navbarDropdown">
-                                <div class="row gifts p-5">
-                                    <div class="col-12 col-sm-10 col-md-4 col-lg-4 p-2" >
-                                        <h5 class="mb-5">Discover Amazing Gifts</h5>
-                                        <p>Unlimited ways to express love <br>to your loved ones.</p>
-                                        <p id="package"><span>We package and deliver to where you want it!</span>
-                                        </p>
-                                        <a href="#" class="btn btn-outline-primary mt-4">SHOP GIFTS</a>
-
-                                    </div>
-                                    <div class="col-12 col-sm-10 col-md-4 col-lg-4 p-2">
-                                        <img src="images/surfer.jpg" alt="two people surfing" class="img-fluid "
-                                             style="width: 250px;border-radius: 30px;">
-                                    </div>
-                                    <div class="col-12 col-sm-10 col-md-4 col-lg-4 p-1">
-                                        <div class="row">
-                                            <div class="col-6">
+                                    </ul>
+                                </li>
+                                <!--end of Brands menu tab-->
+                                <!--Offer menu tab-->
+                                <li class="nav-item dropdown full-dropdown">
+                                    <a class="nav-link" href="#"  id="navbarDropdown-offers" role="button" data-bs-toggle="dropdown"
+                                       aria-expanded="false">
+                                        Offers
+                                    </a>
+                                    <ul class="dropdown-menu full-dropdown-content" aria-labelledby="navbarDropdown-offers">
+                                        <div class="row pt-5 pb-5 ps-2 pe-2">
+                                            <div class="col-6 col-sm-4 col-md-4 col-lg-2">
                                                 <div class="card border-0">
                                                     <div class="card-body">
                                                         <a href="#" title="Tecno camon 11">
-                                                            <div class="gift-card p-3 text-center rounded-3">
+                                                            <div class="gift-card p-3 text-center align-content-center">
                                                                 <img src="images/tecno-camon-18-1.png"
                                                                      alt="two people surfing" class="img-fluid round-3">
                                                                 <a href="#" class="btn btn-primary add-to-cart ">add to Cart</a>
@@ -302,11 +162,83 @@
                                                 </div>
 
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-6 col-sm-4 col-md-4 col-lg-2">
                                                 <div class="card border-0">
                                                     <div class="card-body">
                                                         <a href="#" title="Tecno camon 11">
-                                                            <div class="gift-card p-3 text-center rounded-3">
+                                                            <div class="gift-card p-3 text-center align-content-center">
+                                                                <img src="images/tecno-camon-18-1.png"
+                                                                     alt="two people surfing" class="img-fluid round-3">
+                                                                <a href="#" class="btn btn-primary add-to-cart ">add to Cart</a>
+
+                                                            </div>
+                                                        </a>
+                                                        <h6 class="mt-2">Tecno Camon 11 Pro</h6>
+                                                        <p>Kshs. 11,999</p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-6 col-sm-4 col-md-4 col-lg-2">
+                                                <div class="card border-0">
+                                                    <div class="card-body">
+                                                        <a href="#" title="Tecno camon 11">
+                                                            <div class="gift-card p-3 text-center align-content-center">
+                                                                <img src="images/tecno-camon-18-1.png"
+                                                                     alt="two people surfing" class="img-fluid round-3">
+                                                                <a href="#" class="btn btn-primary add-to-cart ">add to Cart</a>
+
+                                                            </div>
+                                                        </a>
+                                                        <h6 class="mt-2">Tecno Camon 11 Pro</h6>
+                                                        <p>Kshs. 11,999</p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-6 col-sm-4 col-md-4 col-lg-2">
+                                                <div class="card border-0">
+                                                    <div class="card-body">
+                                                        <a href="#" title="Tecno camon 11">
+                                                            <div class="gift-card p-3 text-center align-content-center">
+                                                                <img src="images/tecno-camon-18-1.png"
+                                                                     alt="two people surfing" class="img-fluid round-3">
+                                                                <a href="#" class="btn btn-primary add-to-cart ">add to Cart</a>
+
+                                                            </div>
+                                                        </a>
+                                                        <h6 class="mt-2">Tecno Camon 11 Pro</h6>
+                                                        <p>Kshs. 11,999</p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-6 col-sm-4 col-md-4 col-lg-2">
+                                                <div class="card border-0">
+                                                    <div class="card-body">
+                                                        <a href="#" title="Tecno camon 11">
+                                                            <div class="gift-card p-3 text-center align-content-center">
+                                                                <img src="images/tecno-camon-18-1.png"
+                                                                     alt="two people surfing" class="img-fluid round-3">
+                                                                <a href="#" class="btn btn-primary add-to-cart ">add to Cart</a>
+
+                                                            </div>
+                                                        </a>
+                                                        <h6 class="mt-2">Tecno Camon 11 Pro</h6>
+                                                        <p>Kshs. 11,999</p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-6 col-sm-4 col-md-4 col-lg-2">
+                                                <div class="card border-0">
+                                                    <div class="card-body">
+                                                        <a href="#" title="Tecno camon 11">
+                                                            <div class="gift-card p-3 text-center align-content-center">
                                                                 <img src="images/tecno-camon-18-1.png"
                                                                      alt="two people surfing" class="img-fluid round-3">
                                                                 <a href="#" class="btn btn-primary add-to-cart ">add to Cart</a>
@@ -321,120 +253,191 @@
 
                                             </div>
                                         </div>
+                                        <a href="#" class="btn btn-outline-primary mt-4 ms-5 mb-5 " title="Phones on Offer">SHOW MORE</a>
 
-                                    </div>
+                                    </ul>
+                                </li>
+                                <!--End of Offer menu tab-->
+                                <li class="nav-item dropdown full-dropdown">
+                                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                       aria-expanded="false">
+                                        Gifts
+                                    </a>
+                                    <ul class="dropdown-menu full-dropdown-content" aria-labelledby="navbarDropdown">
+                                        <div class="row gifts p-5">
+                                            <div class="col-12 col-sm-10 col-md-4 col-lg-4 p-2" >
+                                                <h5 class="mb-5">Discover Amazing Gifts</h5>
+                                                <p>Unlimited ways to express love <br>to your loved ones.</p>
+                                                <p id="package"><span>We package and deliver to where you want it!</span>
+                                                </p>
+                                                <a href="#" class="btn btn-outline-primary mt-4">SHOP GIFTS</a>
 
-
-                                </div>
-                            </ul>
-                        </li>
-
-                    </ul>
-
-
-                    <ul class="nav row user-sign">
-                        <li class="nav-item col-12 col-sm-12 col-md-12 col-lg-4 mx-auto">
-                            <a class="nav-link ps-0 ms-0" href="#">Support</a>
-                        </li>
-                        <li class="nav-item col-12 col-sm-12 col-md-12 col-lg-2 mx-auto d-none d-lg-block">
-                            <a class="nav-link ps-0 ms-0 fs-5 fw-normal" href="#" data-bs-toggle="modal" data-bs-target="#search-modal"><i class="fas fa-search"></i></a>
-                            <div>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="search-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-xl">
-                                        <div class="modal-content">
-                                            <div class="modal-header search-close">
-
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle"></i></button>
                                             </div>
-                                            <div class="modal-body">
-
+                                            <div class="col-12 col-sm-10 col-md-4 col-lg-4 p-2">
+                                                <img src="images/surfer.jpg" alt="two people surfing" class="img-fluid "
+                                                     style="width: 250px;border-radius: 30px;">
+                                            </div>
+                                            <div class="col-12 col-sm-10 col-md-4 col-lg-4 p-1">
                                                 <div class="row">
-                                                    <div class="col-12 mx-auto text-center m-4">
-                                                        <h1 class="search-heading">What are you looking for?</h1>
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-mg-8 col-lg-5 mx-auto text-center m-1 mb-5">
-                                                        <form>
-                                                            <div class="input-group">
-                                                                <input type="text" placeholder="SEARCH BRANDS" name="search" class="form-control search">
-                                                                <button type="submit" class="sechi"><i class="fa fa-search"></i></button>
+                                                    <div class="col-6">
+                                                        <div class="card border-0">
+                                                            <div class="card-body">
+                                                                <a href="#" title="Tecno camon 11">
+                                                                    <div class="gift-card p-3 text-center rounded-3">
+                                                                        <img src="images/tecno-camon-18-1.png"
+                                                                             alt="two people surfing" class="img-fluid round-3">
+                                                                        <a href="#" class="btn btn-primary add-to-cart ">add to Cart</a>
+
+                                                                    </div>
+                                                                </a>
+                                                                <h6 class="mt-2">Tecno Camon 11 Pro</h6>
+                                                                <p>Kshs. 11,999</p>
+
                                                             </div>
-                                                        </form>
+                                                        </div>
+
                                                     </div>
-                                                    <div class="col-12 col-md-10 col-lg-8 mx-auto text-center mt-3">
-                                                        <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
-                                                            Tecno Camon 11 pro
-                                                        </a>
-                                                        <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
-                                                            Samsung Galaxy S-Edge
-                                                        </a>
-                                                        <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
-                                                            Sony Z-edge
-                                                        </a>
-                                                        <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
-                                                            Infinix Pro max
-                                                        </a>
-                                                        <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
-                                                            Nokia flip side
-                                                        </a>
-                                                        <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
-                                                            Oppo Camera phone
-                                                        </a>
+                                                    <div class="col-6">
+                                                        <div class="card border-0">
+                                                            <div class="card-body">
+                                                                <a href="#" title="Tecno camon 11">
+                                                                    <div class="gift-card p-3 text-center rounded-3">
+                                                                        <img src="images/tecno-camon-18-1.png"
+                                                                             alt="two people surfing" class="img-fluid round-3">
+                                                                        <a href="#" class="btn btn-primary add-to-cart ">add to Cart</a>
+
+                                                                    </div>
+                                                                </a>
+                                                                <h6 class="mt-2">Tecno Camon 11 Pro</h6>
+                                                                <p>Kshs. 11,999</p>
+
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                 </div>
+
                                             </div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="nav-item col-12 col-sm-12 col-md-12 col-lg-2 mx-auto">
-
-                            <div class="dropdown">
-                                <a class="nav-link ps-0 ms-0 fs-5" href="#" id="user-login" data-bs-toggle="dropdown" aria-expanded="false"><i class="far fa-user"></i></a>
-                                <ul class="dropdown-menu user-drop " aria-labelledby="user-login">
-                                    <li><a class="dropdown-item user-item" href="#">Login or Sign Up </a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item user-item" href="#">Orders</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item user-item" href="#">My Account</a></li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <li class="nav-item col-12 col-sm-12 col-md-12 col-lg-2 mx-auto d-none d-lg-block">
-                            <a class="nav-link ps-0 ms-0 fs-5 " href="javascript:void(0)" onclick="openNav()"><i class="fas fa-shopping-basket"></i></a>
-                            <div id="mySidenav" class="sidenav shadow">
-                                <div class="cart-top">
-                                    <div class="row">
-                                        <div class="col-8 ms-3">
-                                            <h3 class="fs-5 m-2">My Basket</h3>
 
                                         </div>
-                                        <div class="col-2 m-2"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+                                    </ul>
+                                </li>
+                                <li></li>
 
-                                    </div>
-                                </div>
-                                <!--Cart Content-->
-
-
+                            </ul>
 
 
 
 
 
-                            </div>
-                        </li>
-
-                    </ul>
-
-
-                </div>
+                        </div>
+                    </div>
+                </nav>
             </div>
-        </nav>
+            <div class="col-4 text-end pe-5">
+                <ul class="nav  justify-content-end end-nav">
+                    <li class="nav-item">
+                        <a class="nav-link ps-0 ms-0" href="#">Support</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ps-0 ms-0 fs-5 fw-normal" href="#" data-bs-toggle="modal" data-bs-target="#search-modal"><i class="fas fa-search"></i></a>
+                        <div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="search-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl ">
+                                    <div class="modal-content">
+                                        <div class="modal-header search-close">
+
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background: none; font-size: 34px;color: white;"><i class="far fa-times-circle"></i></button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div class="row">
+                                                <div class="col-12 mx-auto text-center m-4">
+                                                    <h1 class="search-heading">What are you looking for?</h1>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-8 col-lg-5 mx-auto text-center m-1 mb-1">
+                                                    <form>
+                                                        <div class="input-group">
+                                                            <input type="search" placeholder="SEARCH BRANDS" name="search" class="form-control search">
+                                                            <button type="submit" class="sechi"><i class="fa fa-search"></i></button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-8 col-lg-8 mx-auto text-center m-1 mb-5">
+                                                    <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                        Tecno Camon 11 pro
+                                                    </a>
+                                                    <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                        Samsung Galaxy S-Edge
+                                                    </a>
+                                                    <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                        Sony Z-edge
+                                                    </a>
+                                                    <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                        Infinix Pro max
+                                                    </a>
+                                                    <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                        Nokia flip side
+                                                    </a>
+                                                    <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                        Oppo Camera phone
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+
+                        <div class="dropdown">
+                            <a class="nav-link ps-0 ms-0 fs-5" href="#" id="user-login" data-bs-toggle="dropdown" aria-expanded="false"><i class="far fa-user"></i></a>
+                            <ul class="dropdown-menu user-drop " aria-labelledby="user-login">
+                                <li><a class="dropdown-item user-item" href="#">Login or Sign Up </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item user-item" href="#">Orders</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item user-item" href="#">My Account</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link ps-0 ms-0 fs-5 " href="javascript:void(0)" onclick="openNav()"><i class="fas fa-shopping-basket"></i></a>
+                        <div id="mySidenav" class="sidenav shadow">
+                            <div class="cart-top">
+                                <div class="row">
+                                    <div class="col-8 ms-3">
+                                        <h3 class="fs-5 m-2">My Basket</h3>
+
+                                    </div>
+                                    <div class="col-2 m-2"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+
+                                </div>
+                            </div>
+                            <!--Cart Content-->
+
+
+
+
+
+
+
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+
     </section>
 </header>
 
@@ -444,7 +447,7 @@
 <footer class="p-3 mt-5 d-none d-sm-block">
     <hr>
     <div class="row">
-        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-3">
             <h6 class="ms-1">SHOP</h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -463,7 +466,7 @@
             </ul>
 
         </div>
-        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-3">
             <h6 class="ms-1">BRANDS</h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -485,7 +488,7 @@
 
             </ul>
         </div>
-        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-3">
             <h6 class="ms-1">SUPPORT</h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -504,7 +507,7 @@
 
             </ul>
         </div>
-        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-3">
             <h6 class="ms-1">ABOUT US</h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -532,6 +535,7 @@
     </div>
     <p class="mt-2 text-center">&copy; 2021 Cerve Ltd. All rights reserved</p>
 </footer>
+<!--Phone device footer-->
 <footer class="d-lg-none d-md-none d-sm-none mini-footer">
     <div class="row">
         <div class="col-12">
