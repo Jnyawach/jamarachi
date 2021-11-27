@@ -1,20 +1,20 @@
-@extends('layouts.app')
-
+@extends('layouts.minimal')
+@section('title','Login')
 @section('content')
-<div class="container">
+<div class="container mt-5 mb-5 pb-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+        <div class="col-12 col-sm-12 col-md-10 col-lg-8">
+            <div class="card shadow-sm auth">
+                <div class="card-body p-5">
+                    <h6 class="fs-4 m-3 text-center mb-5">LOGIN</h6>
+                    <form method="POST" action="{{ route('login') }}" class="pt-3 mb-5">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <div class="form-group">
+                            <label for="email" class="control-label">
+                                Email:</label>
 
-                            <div class="col-md-6">
+                            <div class="">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -25,10 +25,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <div class="form-group mt-3">
+                            <label for="password" class="control-label">Password:</label>
 
-                            <div class="col-md-6">
+                            <div class="">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 text-start mt-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -51,18 +51,25 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary ps-5 pe-5">
+                                {{ __('Login') }}
+                            </button>
+                        </div>
+                        <div class="form-group mt-3 row">
+                            <div class="col-12 col-md-6 col-lg-6 mx-auto text-center">
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        Forgot Password?
                                     </a>
                                 @endif
                             </div>
+                            <div class="col-12 col-md-6 col-lg-6 mx-auto text-center">
+                                <a class="btn btn-link" href="{{ route('register') }}">
+                                    Create Account
+                                </a>
+                            </div>
+
                         </div>
                     </form>
                 </div>

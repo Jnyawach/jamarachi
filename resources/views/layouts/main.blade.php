@@ -42,7 +42,7 @@
         <p class="justify-content-end">Call Us Now: 0717109280</p>
     </section>
     <section class="d-lg-none mt-3 d-md-none">
-        <div class="row ">
+        <div class="row p-1">
             <div class="col-6 ">
                 <a class="navbar-brand" href="#">
                     <img src="images/logo.png" class="img-fluid" alt="Jamarachi Logo" style="width: 180px;">
@@ -52,13 +52,92 @@
             <div class="col-6 text-end">
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <button type="button" class="fs-4 phone-user nav-link"><i class="fas fa-search"></i></button>
+                        <button type="button" class="fs-4 phone-user nav-link" data-bs-toggle="modal" data-bs-target="#small-modal"><i class="fas fa-search"></i></button>
+                        <div class="modal fade" id="small-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl ">
+                                <div class="modal-content">
+                                    <div class="modal-header search-close">
+
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background: none; font-size: 34px;color: white;"><i class="far fa-times-circle"></i></button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="row">
+                                            <div class="col-12 mx-auto text-center m-4">
+                                                <h1 class="search-heading">What are you looking for?</h1>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-8 col-lg-5 mx-auto text-center m-1 mb-1">
+                                                <form>
+                                                    <div class="input-group">
+                                                        <input type="search" placeholder="SEARCH BRANDS" name="search" class="form-control search">
+                                                        <button type="submit" class="sechi"><i class="fa fa-search"></i></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-8 col-lg-8 mx-auto text-center m-1 mb-5">
+                                                <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                    Tecno Camon 11 pro
+                                                </a>
+                                                <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                    Samsung Galaxy S-Edge
+                                                </a>
+                                                <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                    Sony Z-edge
+                                                </a>
+                                                <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                    Infinix Pro max
+                                                </a>
+                                                <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                    Nokia flip side
+                                                </a>
+                                                <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                    Oppo Camera phone
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <button type="button" class="fs-4 phone-user nav-link"><i class="fas fa-shopping-basket"></i></button>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="fs-4 phone-user nav-link"> <i class="fas fa-bars"></i></button>
+                        <button type="button" class="fs-4 phone-user nav-link"data-bs-toggle="offcanvas" data-bs-target="#small-menu" aria-controls="small-menu"> <i class="fas fa-bars"></i></button>
+
+
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="small-menu" aria-labelledby="offcanvasRightLabel">
+                            <div class="offcanvas-header">
+                                <h5 id="offcanvasRightLabel">JAMARACHI</h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body text-start">
+                                <nav class="nav flex-column">
+                                    <a class="nav-link btn-link">SHOP ALL</a>
+                                    <a class="nav-link btn-link" href="#">BRANDS</a>
+                                    <a class="nav-link btn-link" href="#">OFFERS</a>
+                                    <a class="nav-link btn-link" href="#">GIFTS IDEAS</a>
+                                    <a class="nav-link btn-link" href="#">SUPPORT</a>
+                                   @auth()
+                                        <a class="nav-link btn-link" href="#"><i class="far fa-user me-2"></i>MY ACCOUNT</a>
+                                        <a class="nav-link btn-link" href="#">MY ORDERS</a>
+                                       <form action="{{route('logout')}}" method="POST">
+                                          @csrf
+                                           <button type="submit" class="btn btn-primary">Logout</button>
+                                       </form>
+                                       @endauth
+
+
+                                </nav>
+                                <hr>
+                                @guest()
+                                <a href="{{route('login')}}" class="btn btn-link fs-5"><i class="far fa-user me-2"></i>Sign in/Create Account</a>
+                                @endguest
+                                <a href="#" class="btn btn-link fs-5">Track your Orders</a>
+                            </div>
+                        </div>
                     </li>
 
                 </ul>
@@ -70,10 +149,10 @@
     </section>
     <section class="d-none d-md-block d-lg-block">
         <div class="row">
-            <div class="col-8">
+            <div class="col-12">
                 <nav class="navbar navbar-expand-lg navbar-expand-md">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="/">
                             <img src="images/logo.png" class="img-fluid" alt="Jamarachi Logo" style="width: 180px;">
                         </a>
                         <div class="navbar-collapse">
@@ -326,6 +405,100 @@
                                 <li></li>
 
                             </ul>
+                            <ul class="list-unstyled nav">
+                                <li class="nav-item ">
+                                    <a class="nav-link ps-0 ms-0" href="#">Support</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link ps-0 ms-0 fs-5 fw-normal" href="#" data-bs-toggle="modal" data-bs-target="#search-modal"><i class="fas fa-search"></i></a>
+                                    <div>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="search-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-xl ">
+                                                <div class="modal-content">
+                                                    <div class="modal-header search-close">
+
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background: none; font-size: 34px;color: white;"><i class="far fa-times-circle"></i></button>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                        <div class="row">
+                                                            <div class="col-12 mx-auto text-center m-4">
+                                                                <h1 class="search-heading">What are you looking for?</h1>
+                                                            </div>
+                                                            <div class="col-12 col-sm-12 col-md-8 col-lg-5 mx-auto text-center m-1 mb-1">
+                                                                <form>
+                                                                    <div class="input-group">
+                                                                        <input type="search" placeholder="SEARCH BRANDS" name="search" class="form-control search">
+                                                                        <button type="submit" class="sechi"><i class="fa fa-search"></i></button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="col-12 col-sm-12 col-md-8 col-lg-8 mx-auto text-center m-1 mb-5">
+                                                                <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                                    Tecno Camon 11 pro
+                                                                </a>
+                                                                <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                                    Samsung Galaxy S-Edge
+                                                                </a>
+                                                                <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                                    Sony Z-edge
+                                                                </a>
+                                                                <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                                    Infinix Pro max
+                                                                </a>
+                                                                <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                                    Nokia flip side
+                                                                </a>
+                                                                <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
+                                                                    Oppo Camera phone
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+
+                                    <div class="dropdown">
+                                        <a class="nav-link ps-0 ms-0 fs-5" href="#" id="user-login" data-bs-toggle="dropdown" aria-expanded="false"><i class="far fa-user"></i></a>
+                                        <ul class="dropdown-menu user-drop " aria-labelledby="user-login">
+                                            @guest()
+                                            <li><a class="dropdown-item user-item" href="{{route('login')}}">Login or Sign Up </a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                            @endguest
+
+                                            <li><a class="dropdown-item user-item" href="#">Orders</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item user-item" href="#">My Account</a></li>
+
+                                            @auth()
+                                                    <li><hr class="dropdown-divider"></li>
+                                            <li>
+                                                <a class="dropdown-item user-item" href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}
+                                                </a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                                @endauth
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item ">
+                                   <a href="#" class="nav-link ps-0 ms-0 fs-5"><i class="fas fa-shopping-basket"></i></a>
+
+                                </li>
+                            </ul>
 
 
 
@@ -335,106 +508,7 @@
                     </div>
                 </nav>
             </div>
-            <div class="col-4 text-end pe-5">
-                <ul class="nav  justify-content-end end-nav">
-                    <li class="nav-item">
-                        <a class="nav-link ps-0 ms-0" href="#">Support</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ps-0 ms-0 fs-5 fw-normal" href="#" data-bs-toggle="modal" data-bs-target="#search-modal"><i class="fas fa-search"></i></a>
-                        <div>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="search-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-xl ">
-                                    <div class="modal-content">
-                                        <div class="modal-header search-close">
-
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background: none; font-size: 34px;color: white;"><i class="far fa-times-circle"></i></button>
-                                        </div>
-                                        <div class="modal-body">
-
-                                            <div class="row">
-                                                <div class="col-12 mx-auto text-center m-4">
-                                                    <h1 class="search-heading">What are you looking for?</h1>
-                                                </div>
-                                                <div class="col-12 col-sm-12 col-md-8 col-lg-5 mx-auto text-center m-1 mb-1">
-                                                    <form>
-                                                        <div class="input-group">
-                                                            <input type="search" placeholder="SEARCH BRANDS" name="search" class="form-control search">
-                                                            <button type="submit" class="sechi"><i class="fa fa-search"></i></button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="col-12 col-sm-12 col-md-8 col-lg-8 mx-auto text-center m-1 mb-5">
-                                                    <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
-                                                        Tecno Camon 11 pro
-                                                    </a>
-                                                    <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
-                                                        Samsung Galaxy S-Edge
-                                                    </a>
-                                                    <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
-                                                        Sony Z-edge
-                                                    </a>
-                                                    <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
-                                                        Infinix Pro max
-                                                    </a>
-                                                    <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
-                                                        Nokia flip side
-                                                    </a>
-                                                    <a href="#" class="btn btn-outline-secondary search-button" title="Phone Brands">
-                                                        Oppo Camera phone
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-
-                        <div class="dropdown">
-                            <a class="nav-link ps-0 ms-0 fs-5" href="#" id="user-login" data-bs-toggle="dropdown" aria-expanded="false"><i class="far fa-user"></i></a>
-                            <ul class="dropdown-menu user-drop " aria-labelledby="user-login">
-                                <li><a class="dropdown-item user-item" href="#">Login or Sign Up </a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item user-item" href="#">Orders</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item user-item" href="#">My Account</a></li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="nav-item ">
-                        <a class="nav-link ps-0 ms-0 fs-5 " href="javascript:void(0)" onclick="openNav()"><i class="fas fa-shopping-basket"></i></a>
-                        <div id="mySidenav" class="sidenav shadow">
-                            <div class="cart-top">
-                                <div class="row">
-                                    <div class="col-8 ms-3">
-                                        <h3 class="fs-5 m-2">My Basket</h3>
-
-                                    </div>
-                                    <div class="col-2 m-2"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
-
-                                </div>
-                            </div>
-                            <!--Cart Content-->
-
-
-
-
-
-
-
-                        </div>
-                    </li>
-
-                </ul>
-            </div>
         </div>
 
 

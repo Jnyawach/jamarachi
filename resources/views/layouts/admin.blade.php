@@ -139,24 +139,45 @@
 
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingFive">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-headingFive" aria-expanded="false" aria-controls="flush-headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
                         <i class="far fa-file-alt me-2"></i>Policies
                     </button>
                 </h2>
-                <div id="flush-headingFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-collapseFive" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                         <ul class="list-unstyled folders">
-                            <li><a href="{{route('policy.index')}}" title="Admins">FAqs Category</a> </li>
+                            <li><a href="{{route('policy.index')}}" title="Admins">Policies</a> </li>
 
                         </ul>
                         <ul class="list-unstyled folders">
-                            <li><a href="{{route('policy.create')}}" title="Admins">Create Faqs</a> </li>
+                            <li><a href="{{route('policy.create')}}" title="Admins">Create Policy</a> </li>
 
                         </ul>
                     </div>
                 </div>
 
             </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                        <i class="fas fa-tags me-2"></i>Brands
+                    </button>
+                </h2>
+                <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-collapseSix" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('brand.index')}}" title="Admins">Brands</a> </li>
+
+                        </ul>
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('brand.create')}}" title="Admins">Create Brands</a> </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
