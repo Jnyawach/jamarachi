@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Brand;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class AdminBrandController extends Controller
+class AdminCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class AdminBrandController extends Controller
     public function index()
     {
         //
-        $brands=Brand::all();
-        return  view('admin.brand.index', compact('brands'));
+        $categories=Category::all();
+        return  view('admin.category.index',compact('categories'));
     }
 
     /**
@@ -28,7 +28,6 @@ class AdminBrandController extends Controller
     public function create()
     {
         //
-        return  view('admin.brand.create');
     }
 
     /**
@@ -41,17 +40,15 @@ class AdminBrandController extends Controller
     {
         //
         $validated=$request->validate([
-            'name'=>'required|max:25|string',
-            'logo'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'name'=>'required|string|max:25',
+            'status'=>'required|max:1'
         ]);
-        $brand=Brand::create([
-           'name'=>$validated['name'],
+        $category=Category::create([
+            'name'=>$validated['name'],
+            'status'=>$validated['status']
         ]);
-        if($files=$request->file('logo')) {
-            $brand->addMedia($files)->toMediaCollection('logo');
 
-        }
-        return redirect('admin/homepage/brand')->with('status', 'Brand Added Successfully');
+        return  redirect()->back()->with('status','Category added Successfully');
     }
 
     /**
@@ -63,6 +60,9 @@ class AdminBrandController extends Controller
     public function show($id)
     {
         //
+        $category=Category::findBySlugOrFail($id);
+        $mains=Category::all();
+        return  view('admin.category.show', compact('category','mains'));
     }
 
     /**
@@ -74,8 +74,6 @@ class AdminBrandController extends Controller
     public function edit($id)
     {
         //
-        $brand=Brand::findOrFail($id);
-        return view('admin.brand.edit',compact('brand'));
     }
 
     /**
@@ -88,20 +86,17 @@ class AdminBrandController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $brand=Brand::findOrFail($id);
-        $brand->update([' name'=>$request->name]);
-        if($files=$request->file('logo')) {
-            if ( $brand->getMedia('logo')->count()>0){
-                $brand->clearMediaCollection('logo');
-                $brand->addMedia($files)->toMediaCollection('logo');
-            }else{
-                $brand->addMedia($files)->toMediaCollection('logo');
-            }
+        $category=Category::findOrFail($id);
+        $validated=$request->validate([
+            'name'=>'required|string|max:25',
+            'status'=>'required'
+        ]);
+        $category->update([
+            'name'=>$validated['name'],
+            'status'=>$validated['status']
+        ]);
 
-        }
-        return redirect('admin/homepage/brand')->with('status', 'Brand Updated Successfully');
-
-
+        return  redirect()->back()->with('status','Category added Successfully');
     }
 
     /**
@@ -113,5 +108,8 @@ class AdminBrandController extends Controller
     public function destroy($id)
     {
         //
+        $category=Category::findOrFail($id);
+        $category->delete();
+        return  redirect()->back()->with('status','Category deleted Successfully');
     }
 }

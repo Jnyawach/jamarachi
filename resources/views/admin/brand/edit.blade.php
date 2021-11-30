@@ -16,6 +16,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-6">
                 <form method="POST" action="{{route('brand.update',$brand->id)}}" enctype="multipart/form-data">
+                    @method('PATCH')
                     @csrf
                     <div class="form-group row">
                         <label class="control-label" for="brand">Name</label>

@@ -177,6 +177,40 @@
                 </div>
 
             </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingSeven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+                        <i class="fas fa-code-branch me-2"></i>Categories
+                    </button>
+                </h2>
+                <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-collapseSeven" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('category.index')}}" title="Admins">Create Categories</a> </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingEight">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
+                        <i class="fas fa-code-branch me-2"></i>Subcategories
+                    </button>
+                </h2>
+                <div id="flush-collapseEight" class="accordion-collapse collapse" aria-labelledby="flush-collapseEight" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('subcategory.index')}}" title="Admins">Create Subcategories</a> </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 

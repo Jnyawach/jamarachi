@@ -73,6 +73,9 @@
                                 </tfoot>
                             </table>
                         </div>
+                        <div class="card-footer">
+                            <a href="{{route('brand.create')}}" class="btn btn-link">Add Brand</a>
+                        </div>
                     </div>
 
                 </div>
