@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Brand;
+use App\Models\Blog;
+use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class AdminBrandController extends Controller
+class AdminBlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +18,8 @@ class AdminBrandController extends Controller
     public function index()
     {
         //
-        $brands=Brand::all();
-        return  view('admin.brand.index', compact('brands'));
+        $posts=Blog::all();
+        return  view('admin.blog.index',compact('posts'));
     }
 
     /**
@@ -28,7 +30,7 @@ class AdminBrandController extends Controller
     public function create()
     {
         //
-        return  view('admin.brand.create');
+        return  view('admin.blog.create');
     }
 
     /**
@@ -40,18 +42,30 @@ class AdminBrandController extends Controller
     public function store(Request $request)
     {
         //
+
         $validated=$request->validate([
-            'name'=>'required|max:25|string',
-            'logo'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'title'=>'required|max:255|string',
+            'tag'=>'required|max:255|string',
+            'summary'=>'required',
+            'body'=>'required',
+            'post-file'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        $brand=Brand::create([
-           'name'=>$validated['name'],
+        $blog=Blog::create([
+            'title'=>$validated['title'],
+            'summary'=>$validated['summary'],
+            'body'=>$validated['body'],
+            'user_id'=>Auth::id(),
         ]);
-        if($files=$request->file('logo')) {
-            $brand->addMedia($files)->toMediaCollection('logo');
+        $arrayNames = explode(',', $request->input('tag'));
+        foreach($arrayNames as $tag){
+           $blog->tags()->create(['name'=>$tag]);
+        }
+        if($files=$request->file('post-file')) {
+            $blog->addMedia($files)->toMediaCollection('post');
 
         }
-        return redirect('admin/homepage/brand')->with('status', 'Brand Added Successfully');
+
+        return  redirect('admin/homepage/blog')->with('status','Post created successfully');
     }
 
     /**
@@ -74,8 +88,6 @@ class AdminBrandController extends Controller
     public function edit($id)
     {
         //
-        $brand=Brand::findOrFail($id);
-        return view('admin.brand.edit',compact('brand'));
     }
 
     /**
@@ -88,20 +100,6 @@ class AdminBrandController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $brand=Brand::findOrFail($id);
-        $brand->update([' name'=>$request->name]);
-        if($files=$request->file('logo')) {
-            if ( $brand->getMedia('logo')->count()>0){
-                $brand->clearMediaCollection('logo');
-                $brand->addMedia($files)->toMediaCollection('logo');
-            }else{
-                $brand->addMedia($files)->toMediaCollection('logo');
-            }
-
-        }
-        return redirect('admin/homepage/brand')->with('status', 'Brand Update d Successfully');
-
-
     }
 
     /**

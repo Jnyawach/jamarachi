@@ -211,6 +211,27 @@
                 </div>
 
             </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingNine">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
+                        <i class="fas fa-blog me-2"></i>Blog
+                    </button>
+                </h2>
+                <div id="flush-collapseNine" class="accordion-collapse collapse" aria-labelledby="flush-collapseNine" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('blog.index')}}" title="Admins">Manage Blog</a> </li>
+
+                        </ul>
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('blog.create')}}" title="Admins">Create Posts</a> </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 

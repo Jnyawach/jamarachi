@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminPolicyController;
 use App\Http\Controllers\Admin\AdminBrandController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminSubCategoryController;
+use App\Http\Controllers\Admin\AdminBlogController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,4 +40,5 @@ Route::group([], function (){
     Route::resource('admin/homepage/brand',AdminBrandController::class);
     Route::resource('admin/homepage/category',AdminCategoryController::class);
     Route::resource('admin/homepage/subcategory',AdminSubCategoryController::class);
+    Route::resource('admin/homepage/blog',AdminBlogController::class);
 });

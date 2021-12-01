@@ -47,4 +47,7 @@ class User extends Authenticatable
     public function address(){
         return $this->hasOne(Address::class);
     }
+    public function blog(){
+        return $this->hasMany(Blog::class);
+    }
 }

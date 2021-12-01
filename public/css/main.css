@@ -95,13 +95,13 @@ label{
     display: none;
     border-radius: 10px;
 }
-input[type=text],input[type=email],input[type=password],select{
+input[type=text],input[type=email],input[type=password],select,.normal-text{
     border-radius: 30px;
     height: 45px;
     border: 2px solid var(--gray);
     background: var(--lightgray);
 }
-input[type=text]:focus,input[type=email]:focus,input[type=password]:focus{
+input[type=text]:focus,input[type=email]:focus,input[type=password]:focus,.normal-text:focus{
     box-shadow: none;
     border: 1px dashed var(--secondary);
 }
