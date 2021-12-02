@@ -12,6 +12,11 @@ use App\Http\Controllers\Admin\AdminBrandController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminSubCategoryController;
 use App\Http\Controllers\Admin\AdminBlogController;
+use App\Http\Controllers\Admin\DisablePost;
+use App\Http\Controllers\Admin\UnpublishPost;
+
+/*General Routes*/
+use App\Http\Controllers\General\StoriesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,4 +46,9 @@ Route::group([], function (){
     Route::resource('admin/homepage/category',AdminCategoryController::class);
     Route::resource('admin/homepage/subcategory',AdminSubCategoryController::class);
     Route::resource('admin/homepage/blog',AdminBlogController::class);
+    Route::patch('disable/{id}',['as'=>'disable','uses'=>DisablePost::class]);
+    Route::patch('publish/{id}',['as'=>'publish','uses'=>UnpublishPost::class] );
+});
+Route::group([], function (){
+    Route::resource('stories',StoriesController::class);
 });

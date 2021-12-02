@@ -588,7 +588,7 @@
                     <a class="nav-link"  href="#">Our Story</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
+                    <a class="nav-link" href="{{route('stories.index')}}">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Careers</a>
@@ -683,7 +683,7 @@
                                     <a class="nav-link"  href="#">Our Story</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Blog</a>
+                                    <a class="nav-link" href="{{route('stories.index')}}">Blog</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Careers</a>

@@ -36,7 +36,7 @@ class Blog extends Model implements HasMedia
         'published'
     ];
 
-    public function tags(){
+    public function tag(){
         return $this->hasMany(Tag::class);
     }
     public function registerMediaCollections(): void

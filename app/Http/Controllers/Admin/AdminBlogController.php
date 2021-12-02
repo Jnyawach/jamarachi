@@ -58,7 +58,7 @@ class AdminBlogController extends Controller
         ]);
         $arrayNames = explode(',', $request->input('tag'));
         foreach($arrayNames as $tag){
-           $blog->tags()->create(['name'=>$tag]);
+           $blog->tag()->create(['name'=>$tag]);
         }
         if($files=$request->file('post-file')) {
             $blog->addMedia($files)->toMediaCollection('post');
@@ -77,6 +77,8 @@ class AdminBlogController extends Controller
     public function show($id)
     {
         //
+        $post=Blog::findBySlugOrFail($id);
+        return  view('admin.blog.show',compact('post'));
     }
 
     /**
@@ -88,6 +90,8 @@ class AdminBlogController extends Controller
     public function edit($id)
     {
         //
+        $post=Blog::findOrFail($id);
+        return  view('admin.blog.edit',compact('post'));
     }
 
     /**
@@ -100,6 +104,36 @@ class AdminBlogController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $blog=Blog::findOrFail($id);
+        $validated=$request->validate([
+            'title'=>'required|max:255|string',
+            'tag'=>'required|max:255|string',
+            'summary'=>'required',
+            'body'=>'required',
+            'post-file'=>'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        $blog->update([
+            'title'=>$validated['title'],
+            'summary'=>$validated['summary'],
+            'body'=>$validated['body'],
+
+        ]);
+        $arrayNames = explode(',', $request->input('tag'));
+        $blog->tag()->delete();
+
+        foreach($arrayNames as $name){
+            $blog->tag()->create(['name'=>$name]);
+        }
+        if($files=$request->file('post-file')) {
+            if ( $blog->getMedia('post')->count()>0){
+                $blog->clearMediaCollection('post');
+                $blog->addMedia($files)->toMediaCollection('post');
+            }else{
+                $blog->addMedia($files)->toMediaCollection('post');
+            }
+
+        }
+        return  redirect('admin/homepage/blog')->with('status','Post updated successfully');
     }
 
     /**
@@ -111,5 +145,9 @@ class AdminBlogController extends Controller
     public function destroy($id)
     {
         //
+        $blog=Blog::findOrFail($id);
+        $blog->delete();
+        return  redirect('admin/homepage/blog')->with('status','Post deleted successfully');
+
     }
 }
