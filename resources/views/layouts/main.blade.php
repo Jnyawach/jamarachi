@@ -116,7 +116,7 @@
                             <div class="offcanvas-body text-start">
                                 <nav class="nav flex-column">
                                     <a class="nav-link btn-link">SHOP ALL</a>
-                                    <a class="nav-link btn-link" href="#">BRANDS</a>
+                                    <a class="nav-link btn-link" href="{{route('brands.index')}}">BRANDS</a>
                                     <a class="nav-link btn-link" href="#">OFFERS</a>
                                     <a class="nav-link btn-link" href="#">GIFTS IDEAS</a>
                                     <a class="nav-link btn-link" href="#">SUPPORT</a>
@@ -175,35 +175,17 @@
                                                     </div>
                                                 </form>
                                             </div>
-                                            <div class="col-12 mx-auto text-center m-1">
-                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                                    SAMSUNG
+                                            <div class="col-8 mx-auto text-center m-1">
+                                                @foreach($brands as $brand)
+                                                <a href="{{route('brands.show',$brand->slug)}}" class="btn btn-outline-secondary brands m-1" title="Phone Brands">
+                                                   {{$brand->name}}
                                                 </a>
-                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                                    HUAWEI
-                                                </a>
-                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                                    OPPO
-                                                </a>
+                                                @endforeach
+
                                             </div>
 
                                             <div class="col-12 mx-auto text-center m-1">
-                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                                    TECNO
-                                                </a>
-                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                                    INFINIX
-                                                </a>
-                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                                    REDMI
-                                                </a>
-                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
-                                                    IPHONE
-                                                </a>
-
-                                            </div>
-                                            <div class="col-12 mx-auto text-center m-1">
-                                                <a href="#" class="btn btn-outline-secondary brands" title="Phone Brands">
+                                                <a href="{{route('brands.index')}}" class="btn btn-outline-secondary brands" title="Phone Brands">
                                                     ALL
                                                 </a>
 
@@ -543,22 +525,16 @@
         <div class="col-6 col-sm-4 col-md-3 col-lg-3">
             <h6 class="ms-1">BRANDS</h6>
             <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link"  href="#">Samsung</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Tecno</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Huawei</a>
-                </li>
+                @foreach($brands->take(4) as $brand)
+                    <li class="nav-item">
+                        <a class="nav-link"  href="{{route('brand.show',$brand->slug)}}">{{$brand->name}}</a>
+                    </li>
+                    @endforeach
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Oppo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">See more</a>
-                </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('brand.index')}}" title="Brands">See more</a>
+                    </li>
 
             </ul>
         </div>
@@ -649,21 +625,15 @@
                     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul class="nav flex-column">
+                                @foreach($brands->take(4) as $brand)
                                 <li class="nav-item">
-                                    <a class="nav-link"  href="#">Samsung</a>
+                                    <a class="nav-link"  href="{{route('brand.show',$brand->slug)}}">{{$brand->name}}</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Tecno</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Huawei</a>
-                                </li>
+                                @endforeach
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Oppo</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">See more</a>
+                                    <a class="nav-link" href="{{route('brand.index')}}" title="Brands">See more</a>
                                 </li>
 
                             </ul>

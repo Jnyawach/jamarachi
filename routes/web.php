@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\UnpublishPost;
 
 /*General Routes*/
 use App\Http\Controllers\General\StoriesController;
+use App\Http\Controllers\General\BrandController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,4 +52,5 @@ Route::group([], function (){
 });
 Route::group([], function (){
     Route::resource('stories',StoriesController::class);
+    Route::resource('brands',BrandController::class);
 });
