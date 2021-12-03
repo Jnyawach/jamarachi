@@ -597,10 +597,10 @@ font-weight: 800;
     border: none;
     }
 footer .nav .nav-item .nav-link{
-    color: var(--secondary);
+    color: black;
     margin: 0px;
     padding: 2px;
-    font-size: 14px;
+    font-size: 18px;
 }
 footer .nav .nav-item .nav-link:hover{
     text-decoration: underline;
@@ -671,16 +671,16 @@ footer .nav .nav-item .nav-link:hover{
  .pagination{
      background: none !important;
  }
- .page-item .page-link{
-    background: none !important;
+ .page-link{
+
     border: none;
-    color: var(--primary);
+    color: white !important;
     font-weight: 700;
  }
- .active .page-link {
-     background-color: var(--primary) !important;
-     border-radius: 30%;
+ .page-link:hover{
+     background: none !important;
  }
+
  /*brand*/
  .brand-head{
     background-color: var(--gray);
@@ -882,7 +882,7 @@ footer .nav .nav-item .nav-link:hover{
     border-radius: 30px;
 }
 /*-------------------Blog------------------------*/
-.hero image{
+.hero img{
     border-radius: 30px;
 }
 .summary{
@@ -893,7 +893,8 @@ footer .nav .nav-item .nav-link:hover{
 .blog-header{
     height: 300px;
     background-repeat: no-repeat;
-    background-size: auto;
+    background-position: center center;
+    background-size: cover;
     border-radius: 30px;
     padding: 30px;
     position: relative;
@@ -910,6 +911,13 @@ footer .nav .nav-item .nav-link:hover{
 }
 .story-card img{
     border-radius: 10px;
-
-
+}
+.story-card h6{
+    color: black;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 30px;
+}
+.story-card h6:hover{
+    text-decoration: underline;
 }

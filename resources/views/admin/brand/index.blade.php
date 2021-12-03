@@ -45,8 +45,9 @@
                                                     <li><a class="dropdown-item" href="{{route('brand.edit',$brand->id)}}">Edit</a>
 
                                                     </li>
+                                                    @can('change-model')
                                                     <li>
-                                                        <form action="{{route('faqs-category.destroy',$brand->id)}}"
+                                                        <form action="{{route('brand.destroy',$brand->id)}}"
                                                               method="POST">
                                                             @method('DELETE')
                                                             @csrf
@@ -55,6 +56,7 @@
                                                             </button>
                                                         </form>
                                                     </li>
+                                                        @endcan
                                                 </ul>
                                             </div>
 

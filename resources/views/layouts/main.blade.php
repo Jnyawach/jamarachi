@@ -45,7 +45,7 @@
         <div class="row p-1">
             <div class="col-6 ">
                 <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" class="img-fluid" alt="Jamarachi Logo" style="width: 180px;">
+                    <img src="{{asset('images/logo.png')}}" class="img-fluid" alt="Jamarachi Logo" style="width: 180px;">
                 </a>
 
             </div>
@@ -153,7 +153,7 @@
                 <nav class="navbar navbar-expand-lg navbar-expand-md">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="/">
-                            <img src="images/logo.png" class="img-fluid" alt="Jamarachi Logo" style="width: 180px;">
+                            <img src="{{asset('images/logo.png')}}" class="img-fluid" alt="Jamarachi Logo" style="width: 180px;">
                         </a>
                         <div class="navbar-collapse">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">

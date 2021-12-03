@@ -40,6 +40,8 @@ class StoriesController extends Controller
     public function store(Request $request)
     {
         //
+
+
     }
 
     /**
@@ -51,6 +53,9 @@ class StoriesController extends Controller
     public function show($id)
     {
         //
+        $post=Blog::findBySlugOrFail($id);
+        return  view('stories.show',compact('post'));
+
     }
 
     /**

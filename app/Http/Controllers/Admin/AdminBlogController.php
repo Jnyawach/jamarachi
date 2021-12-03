@@ -44,7 +44,7 @@ class AdminBlogController extends Controller
         //
 
         $validated=$request->validate([
-            'title'=>'required|max:255|string',
+            'title'=>'required|max:255|string|min:60',
             'tag'=>'required|max:255|string',
             'summary'=>'required',
             'body'=>'required',
@@ -106,7 +106,7 @@ class AdminBlogController extends Controller
         //
         $blog=Blog::findOrFail($id);
         $validated=$request->validate([
-            'title'=>'required|max:255|string',
+            'title'=>'required|max:255|string|min:60',
             'tag'=>'required|max:255|string',
             'summary'=>'required',
             'body'=>'required',
