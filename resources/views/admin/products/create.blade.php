@@ -21,7 +21,28 @@
             <div class="form-group row required">
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                     <label class="control-label">SKU:</label>
-                    <input type="text" name="sku" class="form-control" required autofocus>
+                    <input type="text" name="sku" class="form-control @error('sku') is-invalid @enderror"" required autofocus>
+                    <small>Must be unique to every product</small>
+                    @error('sku')
+                    <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                    @enderror
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                    <label for="category" class="control-label">Category:</label>
+                    <select class="form-select complete" name="category_id" required id="category">
+                        <option selected value="">Select Category</option>
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
+
+                    </select>
+                    <small class="text-danger">
+                        @error('category_id')
+                        {{ $message }}
+                        @enderror
+                    </small>
                 </div>
 
             </div>
