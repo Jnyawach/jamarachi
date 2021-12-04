@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AdminSubCategoryController;
 use App\Http\Controllers\Admin\AdminBlogController;
 use App\Http\Controllers\Admin\DisablePost;
 use App\Http\Controllers\Admin\UnpublishPost;
+use App\Http\Controllers\Admin\AdminProductController;
 
 /*General Routes*/
 use App\Http\Controllers\General\StoriesController;
@@ -47,6 +48,7 @@ Route::group([], function (){
     Route::resource('admin/homepage/category',AdminCategoryController::class);
     Route::resource('admin/homepage/subcategory',AdminSubCategoryController::class);
     Route::resource('admin/homepage/blog',AdminBlogController::class);
+    Route::resource('admin/homepage/products',AdminProductController::class);
     Route::patch('disable/{id}',['as'=>'disable','uses'=>DisablePost::class]);
     Route::patch('publish/{id}',['as'=>'publish','uses'=>UnpublishPost::class] );
 });

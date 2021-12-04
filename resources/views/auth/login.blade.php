@@ -9,7 +9,6 @@
                     <h6 class="fs-4 m-3 text-center mb-5">LOGIN</h6>
                     <form method="POST" action="{{ route('login') }}" class="pt-3 mb-5">
                         @csrf
-
                         <div class="form-group">
                             <label for="email" class="control-label">
                                 Email:</label>
