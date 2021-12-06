@@ -31,7 +31,7 @@ class AdminProductController extends Controller
     {
         //
         $categories=Category::pluck('name','id');
-        $brands=Brand::pluck('name','id');
+        $brands=Brand::orderBy('name')->pluck('name','id');
         return  view('admin.products.create', compact('categories','brands'));
     }
 

@@ -64,6 +64,7 @@
                     <label for="subcategory" class="control-label">Sub-Category:</label>
                     <select class="form-select normal-text subcategory" name="subcategory_id" required id="subcategory">
 
+
                     </select>
                     <small class="text-danger">
                         @error('subcategory_id')
@@ -73,27 +74,64 @@
                 </div>
 
             </div>
-            <h5 class="mt-4">Section Two: Specific Details</h5>
+            <h5 class="mt-5">Section Two: Description</h5>
             <hr>
-            <div class="form-group row">
-                <div class="col-12 col-sm-12 col-md-4 col-lg-3">
-                    <label class="control-label" for="cpu">CPU:</label>
-                    <input type="text" name="cpu" class="form-control @error('cpu') is-invalid @enderror" autofocus id="cpu">
-                    <small>Must be unique to every product</small>
-                    @error('cpu')
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+            <div class="form-group">
+                <label for="description" class="control-label">Description:</label><br>
+                <small>Create product description. Include the keywords. Do not include
+                images and links at this point</small>
+                <textarea name="text" class="form-control description" id="description">
+                                    {{old('description')}}
+                                </textarea>
+
+                <small class="text-danger">
+                    @error('description')
+                    {{ $message }}
                     @enderror
-                </div>
+                </small>
             </div>
+
+            <div class="form-group mt-3">
+                <label for="details" class="control-label">Additional Details:</label><br>
+                <small>Create a detailed description of the product. Include all images and links
+                ofr additional item description</small>
+                <textarea name="text" class="form-control details" id="details">
+                                    {{old('details')}}
+                                </textarea>
+
+                <small class="text-danger">
+                    @error('details')
+                    {{ $message }}
+                    @enderror
+                </small>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="box" class="control-label">What is in the box?:</label><br>
+                <small>Give a list of all items in the box</small>
+                <textarea name="text" class="form-control box" id="box">
+                                    {{old('box')}}
+                                </textarea>
+
+                <small class="text-danger">
+                    @error('box')
+                    {{ $message }}
+                    @enderror
+                </small>
+            </div>
+            <h5 class="mt-5">Section Three: Product Variation (color)</h5>
+            <hr>
+            <p>Add color variation to the product. Attach an image to each color variation</p>
+
+
+
 
 
         </form>
     </section>
 @endsection
 @section('scripts')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script>
 
 
@@ -129,5 +167,11 @@
 
             }
         });
+    </script>
+    <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+    <script>
+        CKEDITOR.replace( 'description');
+        CKEDITOR.replace( 'details' );
+        CKEDITOR.replace( 'box' );
     </script>
 @endsection
