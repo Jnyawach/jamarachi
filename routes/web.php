@@ -48,9 +48,11 @@ Route::group([], function (){
     Route::resource('admin/homepage/category',AdminCategoryController::class);
     Route::resource('admin/homepage/subcategory',AdminSubCategoryController::class);
     Route::resource('admin/homepage/blog',AdminBlogController::class);
+    Route::get('subCategory',[AdminProductController::class, 'subCategory'])->name('subCategory');
     Route::resource('admin/homepage/products',AdminProductController::class);
     Route::patch('disable/{id}',['as'=>'disable','uses'=>DisablePost::class]);
     Route::patch('publish/{id}',['as'=>'publish','uses'=>UnpublishPost::class] );
+
 });
 Route::group([], function (){
     Route::resource('stories',StoriesController::class);

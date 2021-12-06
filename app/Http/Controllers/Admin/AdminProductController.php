@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Brand;
 use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use function MongoDB\BSON\toJSON;
 
 class AdminProductController extends Controller
 {
@@ -27,8 +30,9 @@ class AdminProductController extends Controller
     public function create()
     {
         //
-        $categories=Category::all();
-        return  view('admin.products.create', compact('categories'));
+        $categories=Category::pluck('name','id');
+        $brands=Brand::pluck('name','id');
+        return  view('admin.products.create', compact('categories','brands'));
     }
 
     /**
@@ -85,5 +89,11 @@ class AdminProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function subCategory(Request $request)
+    {
+        $subcategories=SubCategory::where('category_id',$request->category_id)->pluck('name','id');
+        return response()->json($subcategories);
     }
 }
