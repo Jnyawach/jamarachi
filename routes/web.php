@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\AdminBlogController;
 use App\Http\Controllers\Admin\DisablePost;
 use App\Http\Controllers\Admin\UnpublishPost;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\ProductStoreStepTwo;
 
 /*General Routes*/
 use App\Http\Controllers\General\StoriesController;
@@ -49,8 +50,10 @@ Route::group([], function (){
     Route::resource('admin/homepage/subcategory',AdminSubCategoryController::class);
     Route::resource('admin/homepage/blog',AdminBlogController::class);
     Route::get('subCategory',[AdminProductController::class, 'subCategory'])->name('subCategory');
+    Route::get('admin/homepage/products/step-two',[AdminProductController::class, 'productStepTwo'])->name('productStepTwo');
     Route::resource('admin/homepage/products',AdminProductController::class);
     Route::patch('disable/{id}',['as'=>'disable','uses'=>DisablePost::class]);
+    Route::post('stepTwoStore',['as'=>'stepTwoStore','uses'=>ProductStoreStepTwo::class]);
     Route::patch('publish/{id}',['as'=>'publish','uses'=>UnpublishPost::class] );
 
 });

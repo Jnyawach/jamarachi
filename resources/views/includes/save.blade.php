@@ -83,3 +83,51 @@
     </div>
 
 </div>
+<h5 class="mt-5">Section Two: Description</h5>
+<hr>
+<div class="form-group">
+    <label for="description" class="control-label">Description:</label><br>
+    <small>Create product description. Include the keywords. Do not include
+        images and links at this point</small>
+    <textarea name="text" class="form-control description" id="description">
+                                    {{old('description')}}
+                                </textarea>
+
+    <small class="text-danger">
+        @error('description')
+        {{ $message }}
+        @enderror
+    </small>
+</div>
+
+<div class="form-group mt-3">
+    <label for="details" class="control-label">Additional Details:</label><br>
+    <small>Create a detailed description of the product. Include all images and links
+        ofr additional item description</small>
+    <textarea name="text" class="form-control details" id="details">
+                                    {{old('details')}}
+                                </textarea>
+
+    <small class="text-danger">
+        @error('details')
+        {{ $message }}
+        @enderror
+    </small>
+</div>
+
+<div class="form-group mt-3">
+    <label for="box" class="control-label">What is in the box?:</label><br>
+    <small>Give a list of all items in the box</small>
+    <textarea name="text" class="form-control box" id="box">
+                                    {{old('box')}}
+                                </textarea>
+
+    <small class="text-danger">
+        @error('box')
+        {{ $message }}
+        @enderror
+    </small>
+</div>
+<h5 class="mt-5">Section Three: Product Variation (color)</h5>
+<hr>
+<p>Add color variation to the product. Attach an image to each color variation</p>

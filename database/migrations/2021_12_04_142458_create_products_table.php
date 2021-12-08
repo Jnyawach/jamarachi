@@ -19,11 +19,12 @@ class CreateProductsTable extends Migration
             $table->bigInteger('brand_id')->unsigned()->index();
             $table->bigInteger('category_id')->unsigned()->index();
             $table->bigInteger('subcategory_id')->unsigned()->index();
-            $table->string('name');
-            $table->string('sku');
+            $table->string('name')->nullable();
+            $table->string('slug')->nullable();
+            $table->string('sku')->nullable();
             $table->integer('status')->default(0);
             $table->integer('stock')->default(0);
-            $table->string('condition');
+            $table->string('condition')->nullable();
             $table->string('cpu')->nullable();
             $table->string('processor_brand')->nullable();
             $table->integer('rear_camera')->nullable();
@@ -35,14 +36,14 @@ class CreateProductsTable extends Migration
             $table->integer('screen_size')->nullable();
             $table->string('language')->nullable();
             $table->string('display_type')->nullable();
-            $table->longText('details');
-            $table->longText('description');
-            $table->text('box');
-            $table->integer('price');
-            $table->integer('sale_price');
-            $table->string('country');
-            $table->string('weight');
-            $table->string('size');
+            $table->longText('details')->nullable();
+            $table->longText('description')->nullable();
+            $table->text('box')->nullable();
+            $table->integer('price')->nullable();
+            $table->integer('sale_price')->nullable();
+            $table->string('country')->nullable();
+            $table->string('weight')->nullable();
+            $table->string('size')->nullable();
             $table->foreign('brand_id')->references('id')
                 ->on('brands')->onDelete('cascade');
             $table->foreign('category_id')->references('id')

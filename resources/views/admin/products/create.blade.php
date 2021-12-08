@@ -4,30 +4,33 @@
     <section class="p-4">
         <h1>Create Product</h1>
         <hr>
-        <form class="mt-5" action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
+        <form class="mt-5" action="{{route('products.store')}}" method="POST">
+            @csrf
             <h5>Section One: Name & Category</h5>
             <hr>
             <div class="form-group required">
                 <label for="name" class="control-label">Product Name:</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                required autofocus style="width:600px" maxlength="100">
-                <small class="mt-3"> A maximum of 100 characters for product name</small>
-                @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
+                required autofocus style="width:600px" maxlength="100" value="{{session()->get('product.name')}}">
+                <small class="mt-3"> A maximum of 100 characters for product name</small><br>
+                <small class="text-danger">
+                    @error('name')
+                    {{ $message }}
+                    @enderror
+                </small>
+
             </div>
             <div class="form-group row required">
                 <div class="col-12 col-sm-12 col-md-4 col-lg-3">
                     <label class="control-label">SKU:</label>
-                    <input type="text" name="sku" class="form-control @error('sku') is-invalid @enderror" required autofocus>
+                    <input type="text" name="sku" class="form-control @error('sku') is-invalid @enderror" required autofocus
+                    value="{{session()->get('product.sku')}}">
                     <small>Must be unique to every product</small>
-                    @error('sku')
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                    @enderror
+                    <small class="text-danger">
+                        @error('sku')
+                        {{ $message }}
+                        @enderror
+                    </small>
                 </div>
                 <div class="col-12 col-sm-12 col-md-4 col-lg-3">
                     <label for="brand" class="control-label">Brand:</label>
@@ -47,10 +50,13 @@
                 <div class="col-12 col-sm-12 col-md-4 col-lg-3">
                     <label for="category" class="control-label">Category:</label>
                     <select class="form-select normal-text category" name="category_id" required id="category">
-                        <option selected disabled>Select Category</option>
-                        @foreach($categories as $key=>$category)
-                            <option value="{{$key}}">{{$category}}</option>
-                        @endforeach
+
+                            <option selected disabled>Select Category</option>
+                            @foreach($categories as $key=>$category)
+                                <option value="{{$key}}">{{$category}}</option>
+                            @endforeach
+
+
 
                     </select>
                     <small class="text-danger">
@@ -74,54 +80,10 @@
                 </div>
 
             </div>
-            <h5 class="mt-5">Section Two: Description</h5>
-            <hr>
-            <div class="form-group">
-                <label for="description" class="control-label">Description:</label><br>
-                <small>Create product description. Include the keywords. Do not include
-                images and links at this point</small>
-                <textarea name="text" class="form-control description" id="description">
-                                    {{old('description')}}
-                                </textarea>
-
-                <small class="text-danger">
-                    @error('description')
-                    {{ $message }}
-                    @enderror
-                </small>
+            <div class="form-group mt-5 float-end">
+                <button type="submit" class="btn btn-primary">Next</button>
             </div>
 
-            <div class="form-group mt-3">
-                <label for="details" class="control-label">Additional Details:</label><br>
-                <small>Create a detailed description of the product. Include all images and links
-                ofr additional item description</small>
-                <textarea name="text" class="form-control details" id="details">
-                                    {{old('details')}}
-                                </textarea>
-
-                <small class="text-danger">
-                    @error('details')
-                    {{ $message }}
-                    @enderror
-                </small>
-            </div>
-
-            <div class="form-group mt-3">
-                <label for="box" class="control-label">What is in the box?:</label><br>
-                <small>Give a list of all items in the box</small>
-                <textarea name="text" class="form-control box" id="box">
-                                    {{old('box')}}
-                                </textarea>
-
-                <small class="text-danger">
-                    @error('box')
-                    {{ $message }}
-                    @enderror
-                </small>
-            </div>
-            <h5 class="mt-5">Section Three: Product Variation (color)</h5>
-            <hr>
-            <p>Add color variation to the product. Attach an image to each color variation</p>
 
 
 
