@@ -96,7 +96,23 @@ label{
     color: var(--secondary);
 }
 #frame{
-    display: none;
+    display: none !important;
+    border-radius: 10px;
+}
+#firstImage{
+    display: none ;
+    border-radius: 10px;
+}
+#secondImage{
+    display: none ;
+    border-radius: 10px;
+}
+#thirdImage{
+    display: none ;
+    border-radius: 10px;
+}
+#fourthImage{
+    display: none ;
     border-radius: 10px;
 }
 input[type=text],input[type=email],input[type=password],select,.normal-text{
