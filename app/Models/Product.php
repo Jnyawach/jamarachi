@@ -35,12 +35,12 @@ class Product extends Model implements HasMedia
         'condition',
         'cpu',
         'processor_brand',
-        'rear-camera',
-        'front-camera',
+        'rear_camera',
+        'front_camera',
         'cellular',
         'operating_system',
         'sim_card',
-        'battery_capacity',
+        'battery',
         'screen_size',
         'language',
         'display_type',
@@ -53,6 +53,17 @@ class Product extends Model implements HasMedia
         'box',
         'country',
         'weight',
+        'keywords',
+        'meta_description',
+        'complete'
 
     ];
+
+    public  function keyword(){
+        return $this->hasOne(Keyword::class);
+    }
+
+    public  function color(){
+        return $this->hasMany(Color::class);
+    }
 }

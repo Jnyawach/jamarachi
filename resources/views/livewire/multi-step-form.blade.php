@@ -1,11 +1,11 @@
 <div>
-  <form>
+  <form wire:submit.prevent="products.store">
       <div class="first-step">
           <h5>Section One: Name & Category</h5>
           <hr>
           <div class="form-group mt-3 ms-3">
               <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="1" id="status">
+                  <input class="form-check-input" type="checkbox" value="1" id="status" wire:model="status">
                   <label class="form-check-label" for="status">
                       <h5>Enable Product</h5>
                   </label>
@@ -15,7 +15,7 @@
               <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                   <label for="name" class="control-label">Product Name:</label>
                   <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                         required autofocus  maxlength="100" value="{{session()->get('product.name')}}">
+                         required autofocus  maxlength="100" value="{{session()->get('product.name')}}" wire:model="name">
                   <small class="mt-3"> A maximum of 100 characters for product name</small><br>
                   <small class="text-danger">
                       @error('name')
@@ -30,7 +30,7 @@
               <div class="col-12 col-sm-12 col-md-4 col-lg-3">
                   <label class="control-label">SKU:</label>
                   <input type="text" name="sku" class="form-control @error('sku') is-invalid @enderror" required autofocus
-                         value="{{session()->get('product.sku')}}">
+                         value="{{session()->get('product.sku')}}" wire:model="sku">
                   <small>Must be unique to every product</small>
                   <small class="text-danger">
                       @error('sku')
@@ -41,7 +41,7 @@
               <div class="col-12 col-sm-12 col-md-4 col-lg-3">
                   <label for="brand" class="control-label">Brand:</label>
                   <select class="form-select normal-text category" name="brand_id" required id="brand">
-                      <option selected disabled>Select Brand</option>
+                      <option selected disabled wire:model="brand_id">Select Brand</option>
                       @foreach($brands as $key=>$brand)
                           <option value="{{$key}}">{{$brand}}</option>
                       @endforeach
@@ -55,7 +55,7 @@
               </div>
               <div class="col-12 col-sm-12 col-md-4 col-lg-3">
                   <label for="category" class="control-label">Category:</label>
-                  <select class="form-select normal-text category" name="category_id" required id="category">
+                  <select class="form-select normal-text category" name="category_id" required id="category" wire:model="category">
 
                       <option selected disabled>Select Category</option>
                       @foreach($categories as $key=>$category)
@@ -74,7 +74,7 @@
 
               <div class="col-12 col-sm-12 col-md-4 col-lg-3">
                   <label for="subcategory" class="control-label">Sub-Category:</label>
-                  <select class="form-select normal-text subcategory" name="subcategory_id" required id="subcategory">
+                  <select class="form-select normal-text subcategory" name="subcategory_id" required id="subcategory" wire:model="subcategory">
 
 
                   </select>

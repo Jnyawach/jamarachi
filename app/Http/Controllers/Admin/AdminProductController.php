@@ -47,28 +47,96 @@ class AdminProductController extends Controller
     public function store(Request $request)
     {
         //
-        $product=$request->validate([
+        /*$validated=$request->validate([
+            'status'=>'integer|max:25',
             'name'=>'required|max:80|string|min:20',
             'sku'=>'required|string|max:50|unique:products',
-            'brand_id'=>'required|integer',
-            'category_id'=>'required|integer',
-            'subcategory_id'=>'required|integer'
+            'brand_id'=>'required|integer|max:25',
+            'category_id'=>'required|integer|max:25',
+            'subcategory_id'=>'required|integer|max:25',
+            'stock'=>'required|integer|max:25',
+            'price'=>'required|max:50',
+            'sale_price'=>'required|max:50',
+            'stock'=>'required|max:25',
+            'condition'=>'required|max:25|string',
+            'processor_brand'=>'max:25|string',
+            'rear_camera'=>'max:25|string',
+            'front_camera'=>'max:25|string',
+            'cellular'=>'max:25|string',
+            'operating_system'=>'max:25|string',
+            'sim_card'=>'max:25|string',
+            'battery_capacity'=>'max:25',
+            'screen_size'=>'max:25',
+            'language'=>'max:50|string',
+            'display_type'=>'max:25|string',
+            'details'=>'required',
+            'description'=>'required',
+            'box'=>'required',
+            'country'=>'max:25|string',
+            'weight'=>'max:25',
+            'mainImage'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'imageTwo'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'imageThree'=>'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'imageFour'=>'image|mimes:jpeg,png,jpg,gif|max:2048',
 
-        ]);
-      /*$product=Product::create([
-          'name'=>$validated['name'],
-          'sku'=>$validated['sku'],
-          'brand_id'=>$validated['brand_id'],
-          'category_id'=>$validated['category_id'],
-          'subcategory_id'=>$validated['subcategory_id']
+        ]);*/
 
-      ]);*/
-        if($request->session()->has('product')){
-            $request->session()->forget('product');
+        if ($request->session()->has('product')) {
+           $product=Product::findOrFail(session('product.id'));
+            $validated=$request->validate([
+                'status'=>'integer|max:25',
+                'name'=>'required|max:80|string|min:20',
+                'sku'=>'required|string|max:50',
+                'brand_id'=>'required|integer|max:25',
+                'category_id'=>'required|integer|max:25',
+                'subcategory_id'=>'required|integer|max:25',
+                'stock'=>'required|integer',
+                'price'=>'required|max:50',
+                'sale_price'=>'required|max:50',
+            ]);
+           $product->update([
+               'status'=>$validated['status'],
+               'name'=>$validated['name'],
+               'sku'=>$validated['sku'],
+               'brand_id'=>$validated['brand_id'],
+               'category_id'=>$validated['category_id'],
+               'subcategory_id'=>$validated['subcategory_id'],
+               'price'=>$validated['price'],
+               'sale_price'=>$validated['sale_price'],
+               'stock'=>$validated['stock'],
+           ]);
             $request->session()->put('product', $product);
         }else{
+            $validated=$request->validate([
+                'status'=>'integer|max:25',
+                'name'=>'required|max:80|string|min:20',
+                'sku'=>'required|string|max:50|unique:products',
+                'brand_id'=>'required|integer|max:25',
+                'category_id'=>'required|integer|max:25',
+                'subcategory_id'=>'required|integer|max:25',
+                'stock'=>'required|integer',
+                'price'=>'required|max:50',
+                'sale_price'=>'required|max:50',
+            ]);
+            $product=Product::create([
+                'status'=>$validated['status'],
+                'name'=>$validated['name'],
+                'sku'=>$validated['sku'],
+                'brand_id'=>$validated['brand_id'],
+                'category_id'=>$validated['category_id'],
+                'subcategory_id'=>$validated['subcategory_id'],
+                'price'=>$validated['price'],
+                'sale_price'=>$validated['sale_price'],
+                'stock'=>$validated['stock'],
+
+            ]);
             $request->session()->put('product', $product);
         }
+
+
+
+
+
 
         return  redirect('admin/homepage/products/step-two');
 
@@ -128,5 +196,14 @@ class AdminProductController extends Controller
 
     public  function productStepTwo(){
         return view('admin/products/step-two');
+    }
+    public  function productStepThree(){
+        return view('admin/products/step-three');
+    }
+    public  function productStepFour(){
+        return view('admin/products/step-four');
+    }
+    public  function productStepFive(){
+        return view('admin/products/step-five');
     }
 }

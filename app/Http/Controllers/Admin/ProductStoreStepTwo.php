@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductStoreStepTwo extends Controller
@@ -21,6 +22,14 @@ class ProductStoreStepTwo extends Controller
           'details'=>'required',
           'box'=>'required'
       ]);
-       
+       $product=Product::findOrFail(session('product.id'));
+       $product->update([
+           'description'=>$validated['description'],
+           'details'=>$validated['details'],
+           'box'=>$validated['box'],
+       ]);
+        $request->session()->put('product', $product);
+        return  redirect('admin/homepage/products/step-three');
     }
+
 }
