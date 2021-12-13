@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -28,12 +27,14 @@ class ProductStoreStepFour extends Controller
             'meta_description'=>'required'
         ]);
         $product=Product::findOrFail(session('product.id'));
+
         $product->update([
             'keywords'=>$validated['keywords'],
             'meta_description'=>$validated['meta_description']
         ]);
 
-        if($files=$request->file('mainImage')) {
+
+       if($files=$request->file('mainImage')) {
             if ( $product->getMedia('mainImage')->count()>0){
                 $product->clearMediaCollection('mainImage');
                 $product->addMedia($files)->toMediaCollection('mainImage');
@@ -71,7 +72,10 @@ class ProductStoreStepFour extends Controller
             }
 
         }
-        $request->session()->put('product', $product);
+
+
+
+
         return  redirect('admin/homepage/products/step-five');
     }
 }

@@ -214,6 +214,11 @@ input[type="checkbox"]{
     color: white;
     border: 1px solid var(--primary);
 }
+.btn-danger{
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+}
 .card{
     border: none;
 }

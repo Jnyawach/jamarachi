@@ -14,14 +14,10 @@ class Color extends Model implements HasMedia
 
     protected $fillable=['name','product_id'];
 
-    public function registerMediaCollections(): void
+    public function registerMediaConversions(Media $media = null): void
     {
-        $this
-            ->addMediaCollection('colorFile')
-            ->registerMediaConversions(function (Media $media) {
-                $this
-                    ->addMediaConversion('colorFile-card')
-                    ->width(300);
-            });
+        $this->addMediaConversion('colorFile')
+            ->width(100)
+            ->height(100);
     }
 }

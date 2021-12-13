@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\ProductStoreStepFour;
 use App\Http\Controllers\Admin\ProductStoreStepFive;
 use App\Http\Controllers\Admin\ProductRemoveColor;
 use App\Http\Controllers\Admin\ProductCreateFinish;
+use App\Http\Controllers\Admin\ChangeProductStatus;
 
 /*General Routes*/
 use App\Http\Controllers\General\StoriesController;
@@ -59,6 +60,10 @@ Route::group([], function (){
     Route::get('admin/homepage/products/step-three',[AdminProductController::class, 'productStepThree'])->name('productStepThree');
     Route::get('admin/homepage/products/step-four',[AdminProductController::class, 'productStepFour'])->name('productStepFour');
     Route::get('admin/homepage/products/step-five',[AdminProductController::class, 'productStepFive'])->name('productStepFive');
+    Route::get('admin/homepage/products/active',[AdminProductController::class, 'productActive'])->name('productActive');
+    Route::get('admin/homepage/products/inactive',[AdminProductController::class, 'productInactive'])->name('productInactive');
+    Route::get('admin/homepage/products/selling',[AdminProductController::class, 'selling'])->name('selling');
+    Route::get('admin/homepage/products/soldout',[AdminProductController::class, 'soldOut'])->name('soldOut');
     Route::resource('admin/homepage/products',AdminProductController::class);
     Route::patch('disable/{id}',['as'=>'disable','uses'=>DisablePost::class]);
     Route::post('stepTwoStore',['as'=>'stepTwoStore','uses'=>ProductStoreStepTwo::class]);
@@ -67,6 +72,7 @@ Route::group([], function (){
     Route::post('stepFiveStore',['as'=>'stepFiveStore','uses'=>ProductStoreStepFive::class]);
     Route::patch('publish/{id}',['as'=>'publish','uses'=>UnpublishPost::class] );
     Route::patch('createFinish/{id}',['as'=>'createFinish','uses'=>ProductCreateFinish::class] );
+    Route::patch('productStatus/{id}',['as'=>'productStatus','uses'=>ChangeProductStatus::class] );
     Route::delete('removeColor/{id}',['as'=>'removeColor','uses'=>ProductRemoveColor::class]);
 
 });

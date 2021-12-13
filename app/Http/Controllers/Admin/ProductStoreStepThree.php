@@ -52,6 +52,7 @@ class ProductStoreStepThree extends Controller
             'weight'=>$validated['weight'],
 
         ]);
+
         $request->session()->put('product', $product);
         return  redirect('admin/homepage/products/step-four');
     }

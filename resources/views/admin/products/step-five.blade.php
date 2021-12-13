@@ -5,26 +5,25 @@
     <section>
         <div class="row">
             <div class="col-11 mx-auto">
-                <form action="{{route('stepFiveStore')}}" method="POST" enctype="multipart/form-data" id="colorForm">
-                    @csrf
+
                     <div class="step-five">
                         <h5>Step Five: Color Variation</h5>
                         <hr>
 
                         <div class="row">
-                            <?php
+                            @php
                             $product=\App\Models\Product::findOrFail(session()->get('product.id'));
-                            ?>
-                            @if($product->color->count()>0)
-                                @foreach($product->color as $color)
+                            @endphp
+                                @if($product->colors->count()>0)
+                                   @foreach($product->colors as $color)
                                     <div class="col-sm-6 col-dm-4 col-lg-3 text-center">
-                                        <img src="{{url($color->getFirstMediaUrl('colorFile')? $color->getFirstMedia('colorFile')->getUrl('colorFile-card'):'/images/no-image.png' )}}"
+                                        <img src="{{url($color->getFirstMediaUrl('colorFile')? $color->getFirstMedia('colorFile')->getUrl('colorFile'):'/images/no-image.png' )}}"
                                              class="img-fluid" style="width:150px">
                                         <h6 class="mt-2">{{$color->name}}</h6>
-                                        <form action="{{route('removeColor', $color->id)}}" method="POST" id="removeForm">
+                                        <form action="{{route('removeColor', $color->id)}}" method="POST" id="removeForm{{$color->id}}">
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class=" btn-danger fs-6">
+                                            <button type="submit" class=" btn-danger fs-6" form="removeForm{{$color->id}}">
                                                 <i class="far fa-trash-alt"></i> Remove
                                             </button>
                                         </form>
@@ -90,7 +89,7 @@
                         </div>
                     </div>
 
-                </form>
+
             </div>
         </div>
     </section>

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\SubCategory;
-use Cassandra\Session;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
-use function MongoDB\BSON\toJSON;
+
+
 
 class AdminProductController extends Controller
 {
@@ -21,7 +21,8 @@ class AdminProductController extends Controller
     public function index()
     {
         //
-        return  view('admin.products.index');
+        $products=Product::where('complete',1)->get();
+        return  view('admin.products.index', compact('products'));
     }
 
     /**
@@ -47,39 +48,7 @@ class AdminProductController extends Controller
     public function store(Request $request)
     {
         //
-        /*$validated=$request->validate([
-            'status'=>'integer|max:25',
-            'name'=>'required|max:80|string|min:20',
-            'sku'=>'required|string|max:50|unique:products',
-            'brand_id'=>'required|integer|max:25',
-            'category_id'=>'required|integer|max:25',
-            'subcategory_id'=>'required|integer|max:25',
-            'stock'=>'required|integer|max:25',
-            'price'=>'required|max:50',
-            'sale_price'=>'required|max:50',
-            'stock'=>'required|max:25',
-            'condition'=>'required|max:25|string',
-            'processor_brand'=>'max:25|string',
-            'rear_camera'=>'max:25|string',
-            'front_camera'=>'max:25|string',
-            'cellular'=>'max:25|string',
-            'operating_system'=>'max:25|string',
-            'sim_card'=>'max:25|string',
-            'battery_capacity'=>'max:25',
-            'screen_size'=>'max:25',
-            'language'=>'max:50|string',
-            'display_type'=>'max:25|string',
-            'details'=>'required',
-            'description'=>'required',
-            'box'=>'required',
-            'country'=>'max:25|string',
-            'weight'=>'max:25',
-            'mainImage'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'imageTwo'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'imageThree'=>'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'imageFour'=>'image|mimes:jpeg,png,jpg,gif|max:2048',
 
-        ]);*/
 
         if ($request->session()->has('product')) {
            $product=Product::findOrFail(session('product.id'));
@@ -133,11 +102,6 @@ class AdminProductController extends Controller
             $request->session()->put('product', $product);
         }
 
-
-
-
-
-
         return  redirect('admin/homepage/products/step-two');
 
 
@@ -152,6 +116,8 @@ class AdminProductController extends Controller
     public function show($id)
     {
         //
+        $product=Product::findBySlugOrFail($id);
+        return  view('admin.products.show',compact('product'));
     }
 
     /**
@@ -163,6 +129,10 @@ class AdminProductController extends Controller
     public function edit($id)
     {
         //
+        $product=Product::findOrFail($id);
+        $categories=Category::pluck('name','id');
+        $brands=Brand::orderBy('name')->pluck('name','id');
+        return  view('admin.products.edit', compact('product','categories','brands'));
     }
 
     /**
@@ -175,6 +145,19 @@ class AdminProductController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $product=Product::findOrFail($id);
+        $validated=$request->validate([
+            'name'=>'required|max:80|string|min:20',
+            'brand_id'=>'required|integer|max:25',
+            'category_id'=>'required|integer|max:25',
+            'subcategory_id'=>'required|integer|max:25',
+            'stock'=>'required|integer',
+            'price'=>'required|max:50',
+            'sale_price'=>'required|max:50',
+        ]);
+        $product->update($validated);
+        $request->session()->put('product', $product);
+        return  redirect('admin/homepage/products/step-two');
     }
 
     /**
@@ -186,6 +169,10 @@ class AdminProductController extends Controller
     public function destroy($id)
     {
         //
+        $product=Product::findOrFail($id);
+        $product->delete();
+        return redirect()->back()
+            ->with('status','Product Successfully deleted');
     }
 
     public function subCategory(Request $request)
@@ -205,5 +192,22 @@ class AdminProductController extends Controller
     }
     public  function productStepFive(){
         return view('admin/products/step-five');
+    }
+
+    public  function productActive(){
+        $products=Product::where('complete',1)->where('status',1)->get();
+        return view('admin/products/active',compact('products'));
+    }
+    public  function productInactive(){
+        $products=Product::where('complete',1)->where('status',0)->get();
+        return view('admin/products/inactive',compact('products'));
+    }
+    public  function soldOut(){
+        $products=Product::where('complete',1)->where('status',1)->where('stock',0)->get();
+        return view('admin/products/soldout',compact('products'));
+    }
+    public  function selling(){
+        $products=Product::where('complete',1)->where('status',1)->get();
+        return view('admin/products/selling',compact('products'));
     }
 }
