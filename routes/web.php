@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\ProductStoreStepFive;
 use App\Http\Controllers\Admin\ProductRemoveColor;
 use App\Http\Controllers\Admin\ProductCreateFinish;
 use App\Http\Controllers\Admin\ChangeProductStatus;
+use App\Http\Controllers\Admin\AdminPromotionController;
 
 /*General Routes*/
 use App\Http\Controllers\General\StoriesController;
@@ -55,6 +56,7 @@ Route::group([], function (){
     Route::resource('admin/homepage/category',AdminCategoryController::class);
     Route::resource('admin/homepage/subcategory',AdminSubCategoryController::class);
     Route::resource('admin/homepage/blog',AdminBlogController::class);
+    Route::resource('admin/homepage/promotions',AdminPromotionController::class);
     Route::get('subCategory',[AdminProductController::class, 'subCategory'])->name('subCategory');
     Route::get('admin/homepage/products/step-two',[AdminProductController::class, 'productStepTwo'])->name('productStepTwo');
     Route::get('admin/homepage/products/step-three',[AdminProductController::class, 'productStepThree'])->name('productStepThree');

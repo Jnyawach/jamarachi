@@ -237,6 +237,27 @@
                 </div>
 
             </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTen" aria-expanded="false" aria-controls="flush-collapseTen">
+                        <i class="fas fa-money-check-alt me-2"></i>Promotions
+                    </button>
+                </h2>
+                <div id="flush-collapseTen" class="accordion-collapse collapse" aria-labelledby="flush-collapseTen" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('promotions.index')}}" title="Admins">View Promotions</a> </li>
+
+                        </ul>
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('promotions.create')}}" title="Admins">Create Promotions</a> </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 
