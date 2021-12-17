@@ -56,6 +56,7 @@ Route::group([], function (){
     Route::resource('admin/homepage/category',AdminCategoryController::class);
     Route::resource('admin/homepage/subcategory',AdminSubCategoryController::class);
     Route::resource('admin/homepage/blog',AdminBlogController::class);
+    Route::get('admin/homepage/promotions/products/{id}',[AdminPromotionController::class, 'productAdd'])->name('productAdd');
     Route::resource('admin/homepage/promotions',AdminPromotionController::class);
     Route::get('subCategory',[AdminProductController::class, 'subCategory'])->name('subCategory');
     Route::get('admin/homepage/products/step-two',[AdminProductController::class, 'productStepTwo'])->name('productStepTwo');

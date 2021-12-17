@@ -33,4 +33,8 @@ class Promotion extends Model
         'extra_offers'
     ];
 
+    public  function  products(){
+        return $this->belongsToMany(Product::class);
+    }
+
 }

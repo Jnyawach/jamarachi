@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\Promotion;
 use Illuminate\Http\Request;
 
@@ -136,5 +137,12 @@ class AdminPromotionController extends Controller
         $promotion->delete();
         return  redirect('admin/homepage/promotions')
             ->with('status','Promotion deleted created');
+    }
+
+    public function productAdd ($id){
+        //Product add to promotion
+        $promotion=Promotion::findBySlugOrFail($id);
+        $products=Product::where('complete',1)->where('status',1)->get();
+        return view('admin/promotions/products',compact('products','promotion'));
     }
 }

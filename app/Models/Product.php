@@ -112,4 +112,8 @@ class Product extends Model implements HasMedia
                     ->height(300);
             });
     }
+
+    public  function promotions(){
+        return $this->belongsToMany(Promotion::class);
+    }
 }
