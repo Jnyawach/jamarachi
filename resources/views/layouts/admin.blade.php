@@ -227,6 +227,7 @@
                         <ul class="list-unstyled folders">
                             <li><a href="{{route('blog.index')}}" title="Admins">Manage Blog</a> </li>
 
+
                         </ul>
                         <ul class="list-unstyled folders">
                             <li><a href="{{route('blog.create')}}" title="Admins">Create Posts</a> </li>
@@ -253,6 +254,26 @@
                             <li><a href="{{route('promotions.create')}}" title="Admins">Create Promotions</a> </li>
 
                         </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingEleven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false"
+                            aria-controls="flush-collapseEleven">
+                        <i class="fab fa-sketch me-2"></i>Interface
+                    </button>
+                </h2>
+                <div id="flush-collapseEleven" class="accordion-collapse collapse" aria-labelledby="flush-collapseEleven" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('interface.index')}}" title="Admins">Design Interface</a> </li>
+
+                        </ul>
+
 
                     </div>
                 </div>

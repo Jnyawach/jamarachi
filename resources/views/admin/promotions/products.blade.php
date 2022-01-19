@@ -7,20 +7,16 @@
     <section>
         <div class="row">
             <div class="col-11 mx-auto">
+                @include('includes.status')
                 <h1>{{$promotion->name}}</h1>
-                <ul class="nav">
+                <ul class="nav mt-5 bg-light mb-4">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                        <a class="nav-link" href="{{route('promotions.show', $promotion->slug)}}">Promoted Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="{{route('productAdd', $promotion->slug)}}">Add Products</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li>
+
                 </ul>
                 <hr>
                 @if($promotion->status==1)
@@ -52,7 +48,7 @@
                                 <th>Price</th>
                                 <th>Sale Price</th>
                                 <th>Available </th>
-                                <th>Active</th>
+
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -66,61 +62,22 @@
                                         <td>{{$product->price}}</td>
                                         <td>{{$product->sale_price}}</td>
                                         <td>{{$product->stock}}</td>
+
                                         <td>
-                                            @if($product->status==1)
-                                                <form action="{{route('productStatus', $product->id)}}" method="POST">
-                                                    @method('PATCH')
+                                           @if($promotion->products->contains($product->id))
+                                               <h5 class="text-success">Promoted</h5>
+                                               @else
+                                            <form action="{{route('promoteProduct')}}" method="POST">
                                                     @csrf
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" role="switch" id="productOn" checked
-                                                               onchange="this.form.submit()">
-                                                        <input type="hidden" name="status" value="0">
-                                                        <label class="form-check-label ms-0 text-success" for="productOn">ON</label>
-                                                    </div>
+                                                    <input type="hidden" name="product_id" value="{{$product->id}}">
+                                                    <input type="hidden" name="promotion_id" value="{{$promotion->id}}">
+
+                                                    <button type="submit" class="btn-sm btn-primary">
+                                                        Add to promotion
+                                                    </button>
                                                 </form>
+                                                @endif
 
-                                            @elseif($product->status==0)
-                                                <form action="{{route('productStatus', $product->id)}}" method="POST">
-                                                    @method('PATCH')
-                                                    @csrf
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" role="switch" id="productOn"
-                                                               onchange="this.form.submit()">
-                                                        <input type="hidden" name="status" value="1">
-                                                        <label class="form-check-label ms-0 text-danger" for="productOn">OFF</label>
-                                                    </div>
-                                                </form>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn p-0 m-0 dropdown-toggle" type="button"
-                                                        id="message1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    See action
-                                                </button>
-                                                <ul class="dropdown-menu" aria-labelledby="message1">
-                                                    <li>
-                                                        <a class="dropdown-item" href="{{route('products.show',$product->slug)}}">
-                                                            View Product</a>
-
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="{{route('products.edit',$product->id)}}">
-                                                            Edit Details</a>
-                                                    </li>
-                                                    <li>
-                                                        <form method="POST" action="{{route('products.destroy',
-                                                            $product->id)}}">
-                                                            @method('DELETE')
-                                                            @csrf
-
-                                                            <button type="submit" class="btn text-danger">Delete <i
-                                                                    class="far fa-trash-alt ms-2"></i></button>
-                                                        </form>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -135,7 +92,6 @@
                                 <th>Price</th>
                                 <th>Sale Price</th>
                                 <th>Available </th>
-                                <th>Active</th>
                                 <th>Action</th>
                             </tr>
                             </tfoot>

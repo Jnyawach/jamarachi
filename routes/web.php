@@ -23,6 +23,11 @@ use App\Http\Controllers\Admin\ProductRemoveColor;
 use App\Http\Controllers\Admin\ProductCreateFinish;
 use App\Http\Controllers\Admin\ChangeProductStatus;
 use App\Http\Controllers\Admin\AdminPromotionController;
+use App\Http\Controllers\Admin\AddProductPromotion;
+use App\Http\Controllers\Admin\UnPromoteProductController;
+use App\Http\Controllers\Admin\AdminInterfaceController;
+use App\Http\Controllers\Admin\HomeSlideController;
+
 
 /*General Routes*/
 use App\Http\Controllers\General\StoriesController;
@@ -58,6 +63,8 @@ Route::group([], function (){
     Route::resource('admin/homepage/blog',AdminBlogController::class);
     Route::get('admin/homepage/promotions/products/{id}',[AdminPromotionController::class, 'productAdd'])->name('productAdd');
     Route::resource('admin/homepage/promotions',AdminPromotionController::class);
+    Route::post('promoteProduct',['as'=>'promoteProduct','uses'=>AddProductPromotion::class]);
+    Route::patch('unPromoteProduct/{id}',['as'=>'unPromoteProduct','uses'=>UnPromoteProductController::class]);
     Route::get('subCategory',[AdminProductController::class, 'subCategory'])->name('subCategory');
     Route::get('admin/homepage/products/step-two',[AdminProductController::class, 'productStepTwo'])->name('productStepTwo');
     Route::get('admin/homepage/products/step-three',[AdminProductController::class, 'productStepThree'])->name('productStepThree');
@@ -77,6 +84,8 @@ Route::group([], function (){
     Route::patch('createFinish/{id}',['as'=>'createFinish','uses'=>ProductCreateFinish::class] );
     Route::patch('productStatus/{id}',['as'=>'productStatus','uses'=>ChangeProductStatus::class] );
     Route::delete('removeColor/{id}',['as'=>'removeColor','uses'=>ProductRemoveColor::class]);
+    Route::resource('admin/homepage/interface',AdminInterfaceController::class);
+    Route::resource('admin/homepage/slide',HomeSlideController::class);
 
 });
 Route::group([], function (){

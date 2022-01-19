@@ -8,7 +8,7 @@
         @include('includes.product_nav')
         <hr>
         <div class="row">
-            <div class="col-12 mx-auto p-2">
+            <div class="col-12 mx-auto p-3">
                 @include('includes.status')
                 <div class="card shadow-sm mt-5">
                     <div class="card-header p-3">
@@ -19,6 +19,7 @@
                         <table id="table_id5" class="display">
                             <thead>
                             <tr>
+                                <th>Id</th>
                                 <th>Name</th>
                                 <th>SKU</th>
                                 <th>Created</th>
@@ -33,6 +34,7 @@
                             @if($products->count()>0)
                                 @foreach($products as $product)
                                     <tr>
+                                        <td>{{$product->id}}</td>
                                     <td>{{$product->name}}</td>
                                     <td>{{$product->sku}}</td>
                                     <td>{{$product->created_at->isoFormat('MMM Do Y')}}</td>
@@ -102,6 +104,7 @@
                             </tbody>
                             <tfoot>
                             <tr>
+                                <th>Id</th>
                                 <th>Name</th>
                                 <th>SKU</th>
                                 <th>Created</th>

@@ -57,39 +57,18 @@
                                        <td>{{$product->created_at->isoFormat('MMM Do Y')}}</td>
                                        <td>{{$product->name}}</td>
 
-                                       <td>{{$promotion->discount}}%</td>
+                                       <td>{{$product->stock}}</td>
                                        <td>
-                                           <!---remember to use auth for super admin-->
-                                           <div class="dropdown">
-                                               <button class="btn p-0 m-0 dropdown-toggle" type="button"
-                                                       id="message1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                   See action
+                                           <form action="{{route('unPromoteProduct', $promotion->id)}}" method="POST">
+                                               @method('PATCH')
+                                               @csrf
+
+                                               <input type="hidden" name="product_id" value="{{$product->id}}">
+
+                                               <button type="submit" class="btn-sm btn-danger">
+                                                  Un-promote Product
                                                </button>
-                                               <ul class="dropdown-menu" aria-labelledby="message1">
-                                                   <li>
-                                                       <a class="dropdown-item" href="{{route('promotions.show',$promotion->slug)}}">
-                                                           View <i class="fas fa-external-link-square-alt ms-2"></i>
-                                                       </a>
-
-                                                   </li>
-                                                   @can('edit-users')
-                                                       <li><a class="dropdown-item" href="{{route('promotions.edit',
-                                                      $promotion->id)}}">Edit<i  class="fas fa-bookmark ms-2"></i></a>
-                                                       </li>
-
-                                                       <li>
-                                                           <form method="POST" action="{{route('promotions.destroy',
-                                                            $promotion->id)}}">
-                                                               @method('DELETE')
-                                                               @csrf
-                                                               <button type="submit" class="btn text-danger">Delete <i
-                                                                       class="far fa-trash-alt ms-2"></i></button>
-                                                           </form>
-                                                       </li>
-                                                   @endcan
-                                               </ul>
-                                           </div>
-
+                                           </form>
                                        </td>
 
 
