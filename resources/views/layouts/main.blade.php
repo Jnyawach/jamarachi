@@ -527,13 +527,13 @@
             <ul class="nav flex-column">
                 @foreach($brands->take(4) as $brand)
                     <li class="nav-item">
-                        <a class="nav-link"  href="{{route('brand.show',$brand->slug)}}">{{$brand->name}}</a>
+                        <a class="nav-link"  href="{{route('brands.show',$brand->slug)}}">{{$brand->name}}</a>
                     </li>
                     @endforeach
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('brand.index')}}" title="Brands">See more</a>
+                        <a class="nav-link" href="{{route('brands.index')}}" title="Brands">See more</a>
                     </li>
 
             </ul>

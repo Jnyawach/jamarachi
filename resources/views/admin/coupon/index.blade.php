@@ -1,43 +1,48 @@
 @extends('layouts.admin')
-@section('title','Blog')
+@section('title', 'Coupon')
 @section('styles')
     <link href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel="stylesheet">
-    @endsection
+@endsection
 @section('content')
     <section>
-        <div class="row p-3">
-            <div class="col-12">
+        <div class="row">
+            <div class="col-11 mx-auto">
+                @include('includes.status')
                 <div class="card shadow-sm mt-5">
                     <div class="card-header p-3">
-                        <h5 style="font-size: 18px">Managers<span class="float-end fw-bold">Total:
-                                            {{$posts->count()}}</span></h5>
+                        <h5 style="font-size: 18px">Coupons<span class="float-end fw-bold"> <a href="{{route('coupon.create')}}">Create New Coupon</a></span></h5>
                     </div>
                     <div class="card-body">
-                        @include('includes.status')
-                        <table id="table_id5" class="display">
+                        <table id="coupon" class="display">
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Title</th>
-                                <th>Image</th>
-                                <th>Created on</th>
-                                <th>Created by</th>
+                                <th>Name</th>
+                                <th>Created</th>
+                                <th>Expiry</th>
+                                <th>Code</th>
+                                <th>Amount</th>
+                                <th>Status</th>
                                 <th>Action </th>
                             </tr>
                             </thead>
                             <tbody>
-                            @if($posts->count()>0)
-                                @foreach($posts as $post)
+                            @if($coupons->count()>0)
+                                @foreach($coupons as $coupon)
                                     <tr>
-                                        <td class="fs-6">{{$post->id}}</td>
-                                        <td class="fs-6">{{$post->title}}</td>
-                                        <td >
-                                            <img src="{{asset($post->getFirstMediaUrl('post')? $post->getFirstMedia('post')->getUrl('post-card'):'/images/no-image.png' )}}"
-                                                 class="img-fluid" style="width:50px">
+                                        <td>{{$coupon->id}}</td>
+                                        <td>{{$coupon->name}}</td>
+                                        <td>{{$coupon->created_at->isoFormat('MMM Do Y')}}</td>
+                                        <td>{{\Carbon\Carbon::parse($coupon->expire)->isoFormat('MMM Do Y')}}</td>
+                                        <td>{{$coupon->code}}</td>
+                                        <td>{{$coupon->amount}}</td>
+                                        <td>
+                                            @if($coupon->status==0)
+                                                <span class="text-danger">Inactive</span>
+                                            @elseif($coupon->status==1)
+                                                <span class="text-success">Active</span>
+                                            @endif
                                         </td>
-                                        <td class="fs-6">{{$post->created_at->diffForHumans()}}</td>
-                                        <td class="fs-6">{{$post->user->name}}</td>
-
                                         <td>
                                             <!---remember to use auth for super admin-->
                                             <div class="dropdown">
@@ -46,22 +51,18 @@
                                                     See action
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="message1">
-                                                    <li><a class="dropdown-item" href="{{route('blog.show',
-                                                        $post->slug)}}">View <i
-                                                                class="fas fa-external-link-square-alt
-                                                                    ms-2"></i></a></li>
-                                                    @can('edit-users')
-                                                        <li><a class="dropdown-item" href="{{route('blog.edit',
-                                                      $post->id)}}">Edit <i
+
+                                                    @can('change-model')
+                                                        <li><a class="dropdown-item" href="{{route('coupon.edit',
+                                                      $coupon->id)}}">Edit <i
                                                                     class="fas fa-bookmark ms-2"></i></a></li>
 
                                                         <li>
-                                                            <form method="POST" action="{{route('blog.destroy',
-                                                            $post->id)}}">
+                                                            <form method="POST" action="{{route('coupon.destroy',
+                                                            $coupon->id)}}">
                                                                 @method('DELETE')
                                                                 @csrf
-                                                                <input type="hidden" name="user_id"
-                                                                       value="{{$post->id}}">
+
                                                                 <button type="submit" class="btn text-danger">Delete <i
                                                                         class="far fa-trash-alt ms-2"></i></button>
                                                             </form>
@@ -81,27 +82,34 @@
                             </tbody>
                             <tfoot>
                             <th>Id</th>
-                            <th>Title</th>
-                            <th>Image</th>
-                            <th>Created on</th>
-                            <th>Created by</th>
+                            <th>Name</th>
+                            <th>Created</th>
+                            <th>Expiry</th>
+                            <th>Code</th>
+                            <th>Amount</th>
+                            <th>Status</th>
                             <th>Action </th>
                             </tfoot>
 
                         </table>
                     </div>
+                    <div class="card-footer">
+                        <a href="{{route('coupon.create')}}">Create New Coupon</a>
+                    </div>
 
                 </div>
+
             </div>
         </div>
     </section>
-    @endsection
+@endsection
 @section('scripts')
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
     <script>
         $(document).ready( function () {
+            $('#coupon').DataTable();
 
-            $('#table_id5').DataTable();
         } );
     </script>
-    @endsection
+@endsection

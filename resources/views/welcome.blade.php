@@ -356,75 +356,36 @@
             </div>
         </div>
     </section>
+    @if($blog->count()>0)
     <section class="mt-5 mb-5 p-3 blog explore-gift">
         <h1 class="text-center">#Discover all you have been missing</h1>
         <div class="row p-5">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                <img src="images/skater.jpg" alt="Tecno Cammon 11" class="img-fluid m-1">
+                <img src="{{asset('images/skater.jpg')}}" alt="Tecno Cammon 11" class="img-fluid m-1">
 
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                @foreach($blog as $index=>$post)
+
                 <div class="blog-post">
                     <hr class="blog-hide">
                     <div class="row">
                         <div class="col-2">
-                            <h4>01</h4>
+                            <h4>0{{$index}}</h4>
 
                         </div>
                         <div class="col-10">
-                            <h2>Creative photography tricks that’ll get you all the likes</h2>
-                            <a href="#" title="read more" class="btn btn-link fs-5 blog-hide">Read More<i class="fas fa-long-arrow-alt-right ms-3"></i></a>
+                            <h2>{{\Illuminate\Support\Str::limit($post->title, 80, $end='...')}}</h2>
+                            <a href="{{route('stories.show', $post->slug)}}" title="read more" class="btn btn-link fs-5 blog-hide">Read More<i class="fas fa-long-arrow-alt-right ms-3"></i></a>
                         </div>
 
                     </div>
 
                 </div>
-                <div class="blog-post">
-                    <hr class="blog-hide">
-                    <div class="row">
-                        <div class="col-2">
-                            <h4>02</h4>
+                @endforeach
 
-                        </div>
-                        <div class="col-10">
-                            <h2>Creative photography tricks that’ll get you all the likes</h2>
-                            <a href="#" title="read more" class="btn btn-link fs-5 blog-hide">Read More<i class="fas fa-long-arrow-alt-right ms-3"></i></a>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="blog-post">
-                    <hr class="blog-hide">
-                    <div class="row">
-                        <div class="col-2">
-                            <h4>03</h4>
-
-                        </div>
-                        <div class="col-10">
-                            <h2>Creative photography tricks that’ll get you all the likes</h2>
-                            <a href="#" title="read more" class="btn btn-link fs-5 blog-hide">Read More<i class="fas fa-long-arrow-alt-right ms-3"></i></a>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="blog-post">
-                    <hr class="blog-hide">
-                    <div class="row">
-                        <div class="col-2">
-                            <h4>04</h4>
-
-                        </div>
-                        <div class="col-10">
-                            <h2>Creative photography tricks that’ll get you all the likes</h2>
-                            <a href="#" title="read more" class="btn btn-link fs-5 blog-hide">Read More<i class="fas fa-long-arrow-alt-right ms-3"></i></a>
-                        </div>
-
-                    </div>
-
-                </div>
             </div>
         </div>
     </section>
+    @endif
 @endsection

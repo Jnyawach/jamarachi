@@ -46,7 +46,8 @@ class Blog extends Model implements HasMedia
             ->registerMediaConversions(function (Media $media) {
                 $this
                     ->addMediaConversion('post-card')
-                    ->width(300);
+                    ->height(300)
+                ->crop('crop-center', 400, 300);
             });
     }
 

@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        $brands=Brand::latest()->take(7)->get();
+       $brands=Brand::latest()->take(7)->get();
         view()->share('brands',$brands);
     }
 }

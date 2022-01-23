@@ -109,7 +109,7 @@ label{
     color: var(--secondary);
 }
 #frame{
-    display: none !important;
+    display: none;
     border-radius: 10px;
 }
 #firstImage{

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+/*Main Controller*/
+use App\Http\Controllers\MainController;
 /*Admin Routes*/
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminRoleController;
@@ -27,6 +29,7 @@ use App\Http\Controllers\Admin\AddProductPromotion;
 use App\Http\Controllers\Admin\UnPromoteProductController;
 use App\Http\Controllers\Admin\AdminInterfaceController;
 use App\Http\Controllers\Admin\HomeSlideController;
+use App\Http\Controllers\Admin\AdminCouponController;
 
 
 /*General Routes*/
@@ -43,9 +46,7 @@ use App\Http\Controllers\General\BrandController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/',MainController::class);
 
 Auth::routes();
 
@@ -54,6 +55,7 @@ Route::group([], function (){
     Route::resource('admin',AdminController::class);
     Route::resource('admin/homepage/roles',AdminRoleController::class);
     Route::resource('admin/homepage/users',AdminUSersController::class);
+    Route::resource('admin/homepage/coupon',AdminCouponController::class);
     Route::resource('admin/homepage/faqs',AdminFaqsController::class);
     Route::resource('admin/homepage/faqs-category',AdminFaqsCategoryController::class);
     Route::resource('admin/homepage/policy',AdminPolicyController::class);
